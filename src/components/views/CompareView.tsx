@@ -55,7 +55,7 @@ export const CompareView: React.FC = () => {
       <div className="space-y-8">
         {/* Comparative Altimetric Overlay (Unique Graphic) */}
         {(profile1.length > 0 || profile2.length > 0) && (
-          <div className="bg-stone-50 dark:bg-stone-900/40 border border-stone-200 dark:border-stone-800 -xl p-6 space-y-4">
+          <div className="bg-stone-50 dark:bg-stone-900/40 border border-stone-200 dark:border-stone-800 p-6 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-amber-600" />
@@ -64,8 +64,8 @@ export const CompareView: React.FC = () => {
                 </h3>
               </div>
               <div className="flex gap-4 text-[10px] font-mono">
-                {artist1 && <span className="flex items-center gap-1.5"><span className="w-2 h-2 -full bg-amber-600" /> {artist1.name}</span>}
-                {artist2 && <span className="flex items-center gap-1.5"><span className="w-2 h-2 -full bg-blue-600" /> {artist2.name}</span>}
+                {artist1 && <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-600" /> {artist1.name}</span>}
+                {artist2 && <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-600" /> {artist2.name}</span>}
               </div>
             </div>
             <div className="relative h-24">
