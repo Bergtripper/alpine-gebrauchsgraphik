@@ -1,0 +1,150 @@
+export interface HistoricalMilestone {
+  year: number;
+  title: string;
+  category: 'Tourism' | 'Transport' | 'Olympics' | 'Publication' | 'Club' | 'Design';
+  description: string;
+  region?: string;
+  relatedEntityId?: string;
+}
+
+export const HISTORICAL_MILESTONES: HistoricalMilestone[] = [
+  {
+    year: 1905,
+    title: 'Wiener Werkstätte Alpine Graphic Innovations',
+    category: 'Publication',
+    region: 'Austria',
+    description: 'Secessionist artists translate Tyrolean alpine landscapes and folk costumes into modern stylized lithography and postcard typography.',
+  },
+  {
+    year: 1908,
+    title: 'Grand Hotel Miramonti Opens in Cortina',
+    category: 'Tourism',
+    region: 'Dolomites',
+    description: 'The pioneering grand hotel initiates luxury winter hospitality in the Ampezzo valley, commissioning luggage labels and promotional graphics.',
+    relatedEntityId: 'hotel-miramonti',
+  },
+  {
+    year: 1912,
+    title: 'Karwendelbahn Electrification (Innsbruck)',
+    category: 'Transport',
+    region: 'Tyrol',
+    description: 'Austrian State Railways commission Gustav Jahn for the revolutionary electric mountain railway poster.',
+    relatedEntityId: 'gustav-jahn',
+  },
+  {
+    year: 1914,
+    title: 'Emil Cardinaux Zermatt Poster Landmark',
+    category: 'Design',
+    region: 'Switzerland',
+    description: 'Cardinaux creates the monumental expressionist Matterhorn poster for Wolfsberg Zurich, redefining Swiss travel advertising.',
+    relatedEntityId: 'emil-cardinaux',
+  },
+  {
+    year: 1919,
+    title: 'ENIT Founded in Rome',
+    category: 'Tourism',
+    region: 'Northern Italy',
+    description: 'Ente Nazionale Industrie Turistiche initiates state-sponsored graphic poster commissions across Italy and the Alps.',
+    relatedEntityId: 'enit',
+  },
+  {
+    year: 1924,
+    title: 'Franz Lenhart Relocates to Merano',
+    category: 'Tourism',
+    region: 'South Tyrol',
+    description: 'Lenhart settles in South Tyrol, inaugurating the golden era of modern Dolomite winter sport posters.',
+    relatedEntityId: 'franz-lenhart',
+  },
+  {
+    year: 1928,
+    title: 'II Winter Olympic Games in St. Moritz',
+    category: 'Olympics',
+    region: 'Switzerland',
+    description: 'First autonomous Olympic Winter Games, accompanied by extensive international poster, brochure, and luggage label campaigns.',
+  },
+  {
+    year: 1928,
+    title: 'Der Berg Founded (Vienna / Innsbruck)',
+    category: 'Publication',
+    region: 'Tyrol',
+    description: 'First alpine periodical adopting New Typography, asymmetric grids, and constructivist photomontage.',
+  },
+  {
+    year: 1930,
+    title: 'Ferrovia delle Dolomiti Full Electrification',
+    category: 'Transport',
+    region: 'Dolomites',
+    description: 'Calalzo–Cortina–Dobbiaco narrow gauge opens luxury alpine tourism, spawning high-altitude poster graphics.',
+    relatedEntityId: 'ferrovia-dolomiti',
+  },
+  {
+    year: 1931,
+    title: 'First Hahnenkamm Ski Races in Kitzbühel',
+    category: 'Tourism',
+    region: 'Tyrol',
+    description: 'Kitzbühel establishes the premier downhill ski racing weekend, with graphic posters designed by Alfons Walde and Carl Maria Reisch.',
+    relatedEntityId: 'alfons-walde',
+  },
+  {
+    year: 1933,
+    title: 'Oberrauch & Zitt Landmark Sport Catalogue',
+    category: 'Tourism',
+    region: 'South Tyrol',
+    description: 'Gino Merlet directs total brand identity combining modern mountaineering gear with loden typography.',
+    relatedEntityId: 'gino-merlet',
+  },
+  {
+    year: 1934,
+    title: 'Herbert Matter Modernist Photomontage for SNTO',
+    category: 'Design',
+    region: 'Switzerland',
+    description: 'Matter introduces constructivist photomontage, dynamic scales, and modern typography for Swiss National Tourist Office campaigns.',
+    relatedEntityId: 'herbert-matter',
+  },
+  {
+    year: 1936,
+    title: 'Sestriere Modernist Tower Resort Boom',
+    category: 'Transport',
+    region: 'Northern Italy',
+    description: 'Futurist and rationalist architects and designers transform ski resorts into aerodynamic modern playgrounds.',
+  },
+  {
+    year: 1938,
+    title: 'Heinrich C. Berann Pioneers Panoramic Cartography',
+    category: 'Design',
+    region: 'Tyrol',
+    description: 'Berann paints his first revolutionary aerial panoramic relief maps for Grossglockner and Tyrolean tourism associations.',
+    relatedEntityId: 'heinrich-c-berann',
+  },
+  {
+    year: 1944,
+    title: 'Graphis Journal Founded by Walter Herdeg',
+    category: 'Publication',
+    region: 'Switzerland',
+    description: 'Walter Herdeg launches Graphis: International Journal of Graphic Art in Zurich, creating the definitive postwar design forum.',
+    relatedEntityId: 'walter-herdeg',
+  },
+  {
+    year: 1950,
+    title: 'Arthur Zelger Founds Studio in Innsbruck',
+    category: 'Design',
+    region: 'Tyrol',
+    description: 'Zelger establishes the preeminent postwar graphic bureau in western Austria, defining Tyrol tourism branding.',
+    relatedEntityId: 'arthur-zelger',
+  },
+  {
+    year: 1956,
+    title: 'VII Winter Olympic Games in Cortina d’Ampezzo',
+    category: 'Olympics',
+    region: 'Dolomites',
+    description: 'The first Winter Olympics broadcast on international television, defining mid-century modern alpine graphic design.',
+  },
+  {
+    year: 1964,
+    title: 'IX Winter Olympic Games in Innsbruck',
+    category: 'Olympics',
+    region: 'Tyrol',
+    description: 'Innsbruck hosts the Winter Games with integrated graphic identity, posters, and pictograms directed by Arthur Zelger.',
+    relatedEntityId: 'arthur-zelger',
+  },
+];
