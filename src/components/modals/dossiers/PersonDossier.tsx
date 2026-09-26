@@ -46,7 +46,7 @@ export const PersonDossier: React.FC<PersonDossierProps> = ({
           {person.name}
         </h1>
         <div className="text-sm font-mono text-stone-600 mt-1 flex flex-wrap items-center gap-2">
-          <span>{person.birthYear}—{person.deathYear || (person.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')}</span>
+          <span>{person.birthYear ?? 'unknown'}—{person.deathYear || (person.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')}</span>
           <span>·</span>
           <span>Active: {person.activeYears}</span>
           <span>·</span>
