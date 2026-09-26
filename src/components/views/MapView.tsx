@@ -374,7 +374,7 @@ export const MapView: React.FC = () => {
         <div className="absolute bottom-4 left-4 z-20 bg-white/95 dark:bg-[#12161f]/95  border border-stone-300 dark:border-stone-700 p-2.5 text-[10px] font-mono text-stone-600 dark:text-stone-400 space-y-1">
           <div className="font-bold text-stone-900 dark:text-stone-100 uppercase">Cartographic Legend</div>
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 -full bg-stone-900 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-stone-900 inline-block" />
             <span>Geographic Node</span>
           </div>
           <div className="flex items-center gap-2">
