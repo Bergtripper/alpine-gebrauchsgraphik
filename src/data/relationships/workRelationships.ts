@@ -242,9 +242,9 @@ export const WORK_RELATIONSHIPS: Relationship[] = [
   // Ruprich Works
   {
     id: 'rel-ruprich-toblach-work',
-    sourceId: 'ruprich',
+    sourceId: 'gustavo-ruprich',
     sourceType: 'person',
-    sourceName: 'Ruprich',
+    sourceName: 'Gustavo Ruprich',
     targetId: 'work-ruprich-toblach-35',
     targetType: 'work',
     targetName: 'Toblach / Dobbiaco — Dolomiti Wintersport',
