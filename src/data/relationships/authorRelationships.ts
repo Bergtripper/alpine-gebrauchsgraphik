@@ -314,9 +314,9 @@ export const AUTHOR_RELATIONSHIPS: Relationship[] = [
   // Ruprich
   {
     id: 'rel-ruprich-dobbiaco',
-    sourceId: 'ruprich',
+    sourceId: 'gustavo-ruprich',
     sourceType: 'person',
-    sourceName: 'Ruprich',
+    sourceName: 'Gustavo Ruprich',
     targetId: 'dobbiaco',
     targetType: 'place',
     targetName: 'Dobbiaco',
