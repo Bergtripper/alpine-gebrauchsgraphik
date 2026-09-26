@@ -112,11 +112,11 @@ export const PersistentTimeline: React.FC = () => {
 
                 <div className="relative h-6 flex items-center">
                   {/* Base Track */}
-                  <div className="absolute w-full h-1.5 bg-stone-200 dark:bg-stone-800 -full" />
+                  <div className="absolute w-full h-1.5 bg-stone-200 dark:bg-stone-800" />
                   
                   {/* Highlighted Selected Span */}
                   <div
-                    className="absolute h-1.5 bg-stone-900 -full pointer-events-none"
+                    className="absolute h-1.5 bg-stone-900 pointer-events-none"
                     style={{
                       left: `${((filters.startYear - 1900) / 70) * 100}%`,
                       right: `${100 - ((filters.endYear - 1900) / 70) * 100}%`,
