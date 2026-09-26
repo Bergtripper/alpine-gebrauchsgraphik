@@ -41,6 +41,75 @@ export interface SourceReference {
   notes?: string;
 }
 
+/**
+ * Data Model v2 research primitives.
+ *
+ * These are intentionally additive so the current atlas can keep rendering
+ * while records are migrated from demo-level metadata to source-backed claims.
+ */
+export type EvidenceKind = 'DOCUMENTED' | 'CURATED' | 'COMPUTED' | 'USER_SUPPLIED';
+
+export interface ResearchClaim<T = string> {
+  id: string;
+  field: string;
+  value: T;
+  status: ResearchStatus;
+  evidenceKind: EvidenceKind;
+  sourceIds: string[];
+  note?: string;
+}
+
+export type DatePrecision =
+  | 'exact'
+  | 'circa'
+  | 'range'
+  | 'circa-range'
+  | 'before'
+  | 'after'
+  | 'unknown';
+
+export interface StructuredDate {
+  start?: number;
+  end?: number;
+  display: string;
+  precision: DatePrecision;
+  status: ResearchStatus;
+  sourceIds?: string[];
+}
+
+export type ImageSourceType =
+  | 'institution'
+  | 'archive'
+  | 'private_collection'
+  | 'bibliographic'
+  | 'user_scan'
+  | 'external_web';
+
+export interface ImageAsset {
+  id: string;
+  src?: string;
+  thumbnailSrc?: string;
+  cataloguePageUrl?: string;
+  sourceType: ImageSourceType;
+  institution?: string;
+  collection?: string;
+  inventoryId?: string;
+  catalogueId?: string;
+  creditLine?: string;
+  metadataRights?: string;
+  imageRights?: string;
+  verified: boolean;
+  notes?: string;
+}
+
+export interface AttributionRecord {
+  creatorId?: string;
+  creatorName: string;
+  status: ResearchStatus;
+  evidence?: string;
+  sourceIds?: string[];
+}
+
 export interface ColorSwatch {
   hex: string;
   name: string;
@@ -110,6 +179,10 @@ export interface Work {
   creatorId: string;
   creatorName: string;
   researchStatus?: ResearchStatus;
+  claims?: ResearchClaim[];
+  attribution?: AttributionRecord;
+  date?: StructuredDate;
+  images?: ImageAsset[];
   year: number;
   yearDisplay: string; // e.g. "1934", "c. 1932", "1930–1935", "date unknown"
   isDateUncertain?: boolean;
@@ -165,6 +238,9 @@ export interface Person {
   deathYear?: number;
   nationality: string;
   researchStatus?: ResearchStatus;
+  identityStatus?: ResearchStatus;
+  claims?: ResearchClaim[];
+  knownSignatures?: string[];
   identityNotes?: string;
   cities: string[];
   activeYears: string;
@@ -282,6 +358,9 @@ export interface Relationship {
   targetName: string;
   relationLabel: string;
   relationType?: SemanticRelationType;
+  researchStatus?: ResearchStatus;
+  evidenceKind?: EvidenceKind;
+  sourceIds?: string[];
   year?: number;
 }
 
