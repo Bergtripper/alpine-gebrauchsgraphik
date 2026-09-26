@@ -75,7 +75,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
               value={filters.searchQuery}
               onChange={(e) => updateFilter('searchQuery', e.target.value)}
               placeholder="Search artists, places, themes, printers..."
-              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded pl-9 pr-8 py-1.5 text-xs text-stone-900 dark:text-white placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:border-stone-800 dark:focus:border-amber-400 font-mono transition-colors"
+              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 pl-9 pr-8 py-1.5 text-xs text-stone-900 dark:text-white placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:border-stone-800 dark:focus:border-stone-100 font-mono transition-colors"
             />
             {filters.searchQuery && (
               <button
@@ -104,7 +104,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
             )}
             <button
               onClick={onClose}
-              className="p-1 hover:bg-stone-200 dark:hover:bg-stone-800 rounded text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 ml-2"
+              className="p-1 hover:bg-stone-200 dark:hover:bg-stone-800 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 ml-2"
               title="Close filter bar"
             >
               <X size={15} />
@@ -118,7 +118,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
           <div className="col-span-1 sm:col-span-2 space-y-1.5">
             <div className="flex justify-between items-center text-stone-700 dark:text-stone-300">
               <span className="uppercase text-[11px] font-semibold tracking-wider">Chronology</span>
-              <span className="text-stone-900 dark:text-amber-400 font-bold">
+              <span className="text-stone-900 dark:text-stone-100 font-bold">
                 {filters.startYear} — {filters.endYear}
               </span>
             </div>
@@ -132,7 +132,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
                   const val = Number(e.target.value);
                   if (val <= filters.endYear) updateFilter('startYear', val);
                 }}
-                className="w-full accent-stone-900 dark:accent-amber-400 h-1 bg-stone-300 dark:bg-stone-700 rounded cursor-pointer"
+                className="w-full accent-stone-900 dark:accent-stone-100 h-1 bg-stone-300 dark:bg-stone-700 cursor-pointer"
               />
               <input
                 type="range"
@@ -143,7 +143,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
                   const val = Number(e.target.value);
                   if (val >= filters.startYear) updateFilter('endYear', val);
                 }}
-                className="w-full accent-stone-900 dark:accent-amber-400 h-1 bg-stone-300 dark:bg-stone-700 rounded cursor-pointer"
+                className="w-full accent-stone-900 dark:accent-stone-100 h-1 bg-stone-300 dark:bg-stone-700 cursor-pointer"
               />
             </div>
             <div className="flex flex-wrap gap-1 pt-1">
@@ -156,9 +156,9 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
                       updateFilter('startYear', d.start);
                       updateFilter('endYear', d.end);
                     }}
-                    className={`px-1.5 py-0.5 text-[10px] rounded transition-colors ${
+                    className={`px-1.5 py-0.5 text-[10px] transition-colors ${
                       isActive
-                        ? 'bg-stone-900 dark:bg-amber-400 text-white dark:text-stone-950 font-bold'
+                        ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold'
                         : 'bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-700'
                     }`}
                   >
@@ -177,7 +177,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
             <select
               value={filters.placeId}
               onChange={(e) => updateFilter('placeId', e.target.value)}
-              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-amber-400"
+              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-stone-100"
             >
               <option value="all">All Places ({PLACES.length})</option>
               {PLACES.map((p) => (
@@ -196,7 +196,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
             <select
               value={filters.personId}
               onChange={(e) => updateFilter('personId', e.target.value)}
-              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-amber-400"
+              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-stone-100"
             >
               <option value="all">All Creators ({PEOPLE.length})</option>
               {PEOPLE.map((p) => (
@@ -215,7 +215,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
             <select
               value={filters.category}
               onChange={(e) => updateFilter('category', e.target.value)}
-              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-amber-400"
+              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-stone-100"
             >
               {categories.map((c) => (
                 <option key={c} value={c}>
@@ -233,7 +233,7 @@ export const GlobalFilterBar: React.FC<GlobalFilterBarProps> = ({ isOpen, onClos
             <select
               value={filters.style}
               onChange={(e) => updateFilter('style', e.target.value)}
-              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-amber-400"
+              className="w-full bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-2 py-1.5 text-xs text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-800 dark:focus:border-stone-100"
             >
               {styles.map((s) => (
                 <option key={s} value={s}>
