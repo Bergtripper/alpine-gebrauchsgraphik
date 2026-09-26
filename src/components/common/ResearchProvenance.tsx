@@ -98,6 +98,21 @@ export const ResearchProvenance: React.FC<ResearchProvenanceProps> = ({
           </div>
         )}
 
+        {image?.usageStatus && (
+          <div>
+            <div className={labelClass}>Image usage</div>
+            <div className={`text-xs font-mono font-semibold ${
+              image.usageStatus === 'REUSABLE'
+                ? 'text-emerald-700 dark:text-emerald-400'
+                : image.usageStatus === 'PERMISSION_REQUIRED'
+                  ? 'text-amber-700 dark:text-amber-400'
+                  : 'text-stone-700 dark:text-stone-300'
+            }`}>
+              {image.usageStatus.replaceAll('_', ' ')}
+            </div>
+          </div>
+        )}
+
         {!compact && image?.imageRights && (
           <div>
             <div className={labelClass}>Image rights</div>

@@ -85,6 +85,12 @@ export type ImageSourceType =
   | 'user_scan'
   | 'external_web';
 
+export type ImageUsageStatus =
+  | 'REUSABLE'
+  | 'PERMISSION_REQUIRED'
+  | 'RESTRICTED'
+  | 'UNKNOWN';
+
 export interface ImageAsset {
   id: string;
   src?: string;
@@ -98,6 +104,7 @@ export interface ImageAsset {
   creditLine?: string;
   metadataRights?: string;
   imageRights?: string;
+  usageStatus?: ImageUsageStatus;
   verified: boolean;
   notes?: string;
 }
