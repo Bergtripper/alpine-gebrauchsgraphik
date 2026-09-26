@@ -1,0 +1,53 @@
+import { Relationship } from '../../types/atlas';
+
+export const GEOGRAPHIC_RELATIONSHIPS: Relationship[] = [
+  // Place-to-Place Cultural Corridors
+  {
+    id: 'rel-corridor-bolzano-milan',
+    sourceId: 'bolzano',
+    sourceType: 'place',
+    sourceName: 'Bolzano',
+    targetId: 'milan',
+    targetType: 'place',
+    targetName: 'Milan',
+    relationLabel: 'Commercial Lithography Pipeline',
+    relationType: 'associated-with',
+    year: 1930,
+  },
+  {
+    id: 'rel-corridor-bolzano-merano',
+    sourceId: 'bolzano',
+    sourceType: 'place',
+    sourceName: 'Bolzano',
+    targetId: 'merano',
+    targetType: 'place',
+    targetName: 'Merano',
+    relationLabel: 'Adige Valley Graphic Axis',
+    relationType: 'associated-with',
+    year: 1928,
+  },
+  {
+    id: 'rel-corridor-cortina-dobbiaco',
+    sourceId: 'cortina',
+    sourceType: 'place',
+    sourceName: 'Cortina d’Ampezzo',
+    targetId: 'dobbiaco',
+    targetType: 'place',
+    targetName: 'Dobbiaco',
+    relationLabel: 'Ferrovia delle Dolomiti Rail Connection',
+    relationType: 'associated-with',
+    year: 1921,
+  },
+  {
+    id: 'rel-corridor-innsbruck-vienna',
+    sourceId: 'innsbruck',
+    sourceType: 'place',
+    sourceName: 'Innsbruck',
+    targetId: 'vienna',
+    targetType: 'place',
+    targetName: 'Vienna',
+    relationLabel: 'Austrian State Railways Graphic Route',
+    relationType: 'associated-with',
+    year: 1923,
+  },
+];
