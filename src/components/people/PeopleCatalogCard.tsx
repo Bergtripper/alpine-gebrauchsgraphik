@@ -36,7 +36,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
             </h2>
             <ResearchStatusBadge status={person.researchStatus || 'CONFIRMED'} size="xs" />
             <span className="text-xs font-mono text-stone-500 dark:text-stone-400">
-              ({person.birthYear}—{person.deathYear || (person.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')})
+              ({person.birthYear ?? 'unknown'}—{person.deathYear || (person.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')})
             </span>
           </div>
           <div className="text-xs font-mono text-stone-600 dark:text-stone-400">
@@ -91,7 +91,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
               <ResearchStatusBadge status={person.researchStatus || 'CONFIRMED'} size="xs" />
             </div>
             <div className="text-xs font-mono text-stone-500 dark:text-stone-400">
-              {person.birthYear}—{person.deathYear || (person.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')} · {person.nationality}
+              {person.birthYear ?? 'unknown'}—{person.deathYear || (person.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')} · {person.nationality}
             </div>
           </div>
           <span className="text-[11px] font-mono px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 rounded border border-stone-200 dark:border-stone-700 shrink-0">
