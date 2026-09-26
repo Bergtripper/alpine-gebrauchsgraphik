@@ -1,6 +1,7 @@
 import React from 'react';
 import { Work } from '../../../types/atlas';
 import { ArtworkVisualizer } from '../../common/ArtworkVisualizer';
+import { ResearchProvenance } from '../../common/ResearchProvenance';
 import { Sliders } from 'lucide-react';
 
 interface WorkDossierProps {
@@ -79,17 +80,19 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
             </div>
             <div className="py-2 flex justify-between">
               <dt className="text-stone-500">Printer:</dt>
-              <dd className="text-stone-900">{work.printer || 'Uncredited workshop'}</dd>
+              <dd className="text-stone-900">{work.printer || 'Not documented'}</dd>
             </div>
             <div className="py-2 flex justify-between">
               <dt className="text-stone-500">Client / Sponsor:</dt>
-              <dd className="text-stone-900">{work.clientName || 'Private commission'}</dd>
+              <dd className="text-stone-900">{work.clientName || 'Not documented'}</dd>
             </div>
             <div className="py-2 flex justify-between">
               <dt className="text-stone-500">Repository:</dt>
               <dd className="text-stone-900 text-right">{work.collection}</dd>
             </div>
           </dl>
+
+          <ResearchProvenance work={work} />
 
           {/* Visual DNA Traits */}
           <div className="pt-2">
@@ -140,6 +143,19 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
         </div>
         <p className="font-serif text-stone-900">{work.source.citation}</p>
         <div className="text-[11px] text-stone-500">{work.source.archiveOrCollection}</div>
+        {work.source.notes && (
+          <p className="text-[11px] text-stone-600 leading-snug pt-1">{work.source.notes}</p>
+        )}
+        {work.source.url && (
+          <a
+            href={work.source.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex pt-1 text-[10px] uppercase tracking-wider font-bold text-stone-900 hover:underline"
+          >
+            Open source record ↗
+          </a>
+        )}
       </div>
     </div>
   );

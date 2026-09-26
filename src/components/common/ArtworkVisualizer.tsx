@@ -20,6 +20,8 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
   const [zoomLevel, setZoomLevel] = useState(1);
   const [showLithoGrain, setShowLithoGrain] = useState(true);
   const isZoomed = artworkZoomId === work.id;
+  const realImage = work.images?.find((image) => Boolean(image.src));
+  const hasRealImage = Boolean(realImage?.src);
 
   const heightClasses = {
     sm: 'h-48',
@@ -365,9 +367,24 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
           <span className="w-1.5 h-1.5 rounded-full bg-black" />
         </div>
 
-        {/* Artwork Vector Display */}
+        {/* Historical object image when available; analytical visualization remains the fallback. */}
         <div className="w-full h-full flex items-center justify-center bg-stone-900/5 dark:bg-stone-950/20">
-          {renderMotifGraphic(1)}
+          {hasRealImage && realImage?.src ? (
+            <img
+              src={realImage.src}
+              alt={work.title}
+              className="w-full h-full object-contain bg-stone-100 dark:bg-stone-950"
+              loading="lazy"
+            />
+          ) : (
+            renderMotifGraphic(1)
+          )}
+        </div>
+
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+          <span className="px-1.5 py-0.5 rounded bg-stone-950/80 text-white text-[8px] font-mono uppercase tracking-wider">
+            {hasRealImage ? 'Object image' : 'Analytical visualization'}
+          </span>
         </div>
 
         {/* Hover Action Bar with Blur Effect */}
@@ -450,16 +467,18 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
             </div>
 
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => setShowLithoGrain(!showLithoGrain)}
-                className={`px-2.5 py-1.5 text-xs font-mono rounded border transition-colors flex items-center gap-1 ${
-                  showLithoGrain ? 'bg-amber-500/20 text-amber-300 border-amber-500/40' : 'bg-stone-900 text-stone-400 border-stone-700'
-                }`}
-                title="Toggle lithograph paper grain texture"
-              >
-                <Sparkles size={13} />
-                <span>Litho Grain</span>
-              </button>
+              {!hasRealImage && (
+                <button
+                  onClick={() => setShowLithoGrain(!showLithoGrain)}
+                  className={`px-2.5 py-1.5 text-xs font-mono rounded border transition-colors flex items-center gap-1 ${
+                    showLithoGrain ? 'bg-amber-500/20 text-amber-300 border-amber-500/40' : 'bg-stone-900 text-stone-400 border-stone-700'
+                  }`}
+                  title="Toggle analytical lithograph grain texture"
+                >
+                  <Sparkles size={13} />
+                  <span>Viz Grain</span>
+                </button>
+              )}
 
               <button
                 onClick={() => setZoomLevel((z) => Math.max(0.6, z - 0.25))}
@@ -500,7 +519,15 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
               className="w-[440px] max-w-full shadow-2xl transition-transform duration-200 border-4 border-stone-900 bg-stone-950 rounded-sm overflow-hidden"
               style={{ transform: `scale(${zoomLevel})` }}
             >
-              {renderMotifGraphic(1)}
+              {hasRealImage && realImage?.src ? (
+                <img
+                  src={realImage.src}
+                  alt={work.title}
+                  className="w-full h-auto object-contain bg-stone-950"
+                />
+              ) : (
+                renderMotifGraphic(1)
+              )}
             </div>
           </div>
 
@@ -511,9 +538,9 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
           >
             <div>Collection: {work.collection}</div>
             <div className="flex items-center gap-3">
-              <span>Client: {work.clientName || 'Commercial / Editorial'}</span>
+              <span>Client: {work.clientName || 'Not documented'}</span>
               <span>·</span>
-              <span>Printer: {work.printer || 'Athesia Bozen'}</span>
+              <span>Printer: {work.printer || 'Not documented'}</span>
             </div>
           </div>
         </div>

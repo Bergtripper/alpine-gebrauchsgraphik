@@ -3,6 +3,7 @@ import { EntityType, Person, Work, Place, Organization, Publication } from '../.
 import { EntityBadge, ResearchStatusBadge } from '../ui/EntityBadge';
 import { Button } from '../ui/Button';
 import { ArtworkVisualizer } from '../common/ArtworkVisualizer';
+import { ResearchProvenance } from '../common/ResearchProvenance';
 import { MapPin, AlertCircle, ExternalLink } from 'lucide-react';
 
 interface ContextEntitySummaryProps {
@@ -173,6 +174,8 @@ export const ContextEntitySummary: React.FC<ContextEntitySummaryProps> = ({
               <span className="font-semibold text-stone-900 dark:text-stone-200">{w.dimensions}</span>
             </div>
           </div>
+
+          <ResearchProvenance work={w} compact />
 
           {/* Action */}
           <Button
