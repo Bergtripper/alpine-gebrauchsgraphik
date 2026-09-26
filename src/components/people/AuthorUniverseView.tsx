@@ -79,7 +79,7 @@ export const AuthorUniverseView: React.FC<AuthorUniverseViewProps> = ({
             </div>
             
             <div className="text-sm sm:text-base font-serif italic text-stone-600 dark:text-stone-400 flex flex-wrap items-center gap-2 pt-1">
-              <span>{activeAuthor.birthYear}—{activeAuthor.deathYear || (activeAuthor.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')}</span>
+              <span>{activeAuthor.birthYear ?? 'unknown'}—{activeAuthor.deathYear || (activeAuthor.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')}</span>
               <span className="text-stone-300">/</span>
               <span>{activeAuthor.nationality}</span>
               <span className="text-stone-300">/</span>
