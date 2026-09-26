@@ -6,7 +6,7 @@ import { wilhelmNicolausPrachensky } from './wilhelm-nicolaus-prachensky';
 import { heinrichCBerann } from './heinrich-c-berann';
 import { alfonsWalde } from './alfons-walde';
 import { hansOberbacher } from './hans-oberbacher';
-import { ruprich } from './ruprich';
+import { gustavoRuprich } from './gustavo-ruprich';
 import { carlMariaReisch } from './carl-maria-reisch';
 import { pietroBernardini } from './pietro-bernardini';
 import { josefFiene } from './josef-fiene';
@@ -33,7 +33,7 @@ export {
   heinrichCBerann,
   alfonsWalde,
   hansOberbacher,
-  ruprich,
+  gustavoRuprich,
   carlMariaReisch,
   pietroBernardini,
   josefFiene,
@@ -61,7 +61,7 @@ export const PEOPLE: Person[] = [
   heinrichCBerann,
   alfonsWalde,
   hansOberbacher,
-  ruprich,
+  gustavoRuprich,
   carlMariaReisch,
   pietroBernardini,
   josefFiene,
