@@ -43,7 +43,7 @@ export const PersistentTimeline: React.FC = () => {
               <Clock size={12} className="text-amber-500" />
               <span>TIMELINE FILTER:</span>
             </span>
-            <span className="font-bold text-stone-900 dark:text-white px-2 py-0.5 rounded bg-stone-200 dark:bg-stone-800">
+            <span className="font-bold text-stone-900 dark:text-white px-2 py-0.5  bg-stone-200 dark:bg-stone-800">
               {filters.startYear} — {filters.endYear}
             </span>
             {isFiltered && (
@@ -67,9 +67,9 @@ export const PersistentTimeline: React.FC = () => {
                   key={d.label}
                   onClick={() => selectDecade(d.start, d.end)}
                   className={cn(
-                    'px-2 py-0.5 text-[10px] rounded border transition-colors cursor-pointer whitespace-nowrap',
+                    'px-2 py-0.5 text-[10px]  border transition-colors cursor-pointer whitespace-nowrap',
                     isActive
-                      ? 'bg-stone-900 text-white dark:bg-amber-400 dark:text-stone-950 font-bold border-stone-900 dark:border-amber-400'
+                      ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-950 font-bold border-stone-900 dark:border-amber-400'
                       : 'bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-400 border-stone-300 dark:border-stone-800 hover:border-stone-400 dark:hover:border-stone-600'
                   )}
                 >
@@ -81,7 +81,7 @@ export const PersistentTimeline: React.FC = () => {
 
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="p-1 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 rounded hover:bg-stone-200/60 dark:hover:bg-stone-800 cursor-pointer flex items-center gap-1"
+            className="p-1 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100  hover:bg-stone-200/60 dark:hover:bg-stone-800 cursor-pointer flex items-center gap-1"
             title="Toggle Slider Bar"
           >
             <span className="hidden sm:inline text-[10px]">
@@ -112,11 +112,11 @@ export const PersistentTimeline: React.FC = () => {
 
                 <div className="relative h-6 flex items-center">
                   {/* Base Track */}
-                  <div className="absolute w-full h-1.5 bg-stone-200 dark:bg-stone-800 rounded-full" />
+                  <div className="absolute w-full h-1.5 bg-stone-200 dark:bg-stone-800" />
                   
                   {/* Highlighted Selected Span */}
                   <div
-                    className="absolute h-1.5 bg-amber-500 rounded-full pointer-events-none"
+                    className="absolute h-1.5 bg-stone-900 pointer-events-none"
                     style={{
                       left: `${((filters.startYear - 1900) / 70) * 100}%`,
                       right: `${100 - ((filters.endYear - 1900) / 70) * 100}%`,

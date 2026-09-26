@@ -61,7 +61,7 @@ export const TimelineView: React.FC = () => {
           </div>
 
           {/* Decade Zoom Selector */}
-          <div className="flex flex-wrap gap-1 border border-stone-300 dark:border-stone-700 rounded p-1 bg-white dark:bg-stone-900">
+          <div className="flex flex-wrap gap-1 border border-stone-300 dark:border-stone-700 p-1 bg-white dark:bg-stone-900">
             {decades.map((d) => (
               <button
                 key={d.label}
@@ -75,9 +75,9 @@ export const TimelineView: React.FC = () => {
                     updateFilter('endYear', 1970);
                   }
                 }}
-                className={`px-2.5 py-1 text-xs font-mono rounded transition-colors cursor-pointer ${
+                className={`px-2.5 py-1 text-xs font-mono transition-colors cursor-pointer ${
                   selectedDecade === d.val
-                    ? 'bg-stone-900 dark:bg-amber-400 text-white dark:text-stone-950 font-bold'
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold'
                     : 'text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'
                 }`}
               >
@@ -90,9 +90,9 @@ export const TimelineView: React.FC = () => {
 
       {/* Author Universe Scoped Banner */}
       {activeAuthor && (
-        <div className="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-md text-xs font-mono flex flex-wrap items-center justify-between gap-2">
+        <div className="p-3 bg-transparent dark:bg-transparent border border-amber-200 dark:border-amber-800  text-xs font-mono flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-amber-900 dark:text-amber-200">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-stone-900 dark:bg-stone-100 animate-pulse" />
             <span>
               Author-Scoped Timeline: <strong>{activeAuthor.name}</strong> ({activeAuthor.activeYears})
             </span>
@@ -107,7 +107,7 @@ export const TimelineView: React.FC = () => {
       )}
 
       {/* Main Interactive Chronological Board */}
-      <div className="bg-white dark:bg-[#10141c] border border-stone-300 dark:border-stone-800 rounded-lg p-6 space-y-10 shadow-xs overflow-x-auto min-w-[760px] transition-colors">
+      <div className="bg-white dark:bg-[#10141c] border border-stone-300 dark:border-stone-800  p-6 space-y-10  overflow-x-auto min-w-[760px] transition-colors">
         {/* Top Year Ruler */}
         <div className="relative h-12 border-b border-stone-300 dark:border-stone-800">
           {Array.from({ length: selectedDecade === 'all' ? 8 : 10 }).map((_, i) => {
@@ -133,11 +133,11 @@ export const TimelineView: React.FC = () => {
         {/* Lane 1: Historical Milestones & Tourism Developments */}
         <div className="space-y-2">
           <div className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-amber-500 inline-block shadow-xs" />
+            <span className="w-2 h-2 rounded-full bg-stone-900 dark:bg-stone-100 inline-block " />
             <span>Tourism & Infrastructure Milestones</span>
           </div>
 
-          <div className="relative h-20 bg-stone-50 dark:bg-stone-900/60 rounded border border-stone-200 dark:border-stone-800 p-2">
+          <div className="relative h-20 bg-stone-50 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 p-2">
             {milestonesInScope.map((m, idx) => {
               const leftPercent = getPositionPercent(m.year);
               return (
@@ -146,8 +146,8 @@ export const TimelineView: React.FC = () => {
                   className="absolute top-2 -translate-x-1/2 group cursor-pointer"
                   style={{ left: `${leftPercent}%` }}
                 >
-                  <div className="w-3.5 h-3.5 rounded-full bg-amber-500 border-2 border-white dark:border-stone-900 shadow-sm flex items-center justify-center group-hover:scale-130 transition-transform" />
-                  <div className="hidden group-hover:block absolute bottom-6 left-1/2 -translate-x-1/2 w-64 bg-stone-900 text-white text-xs font-mono p-3 rounded shadow-xl z-30 pointer-events-none border border-stone-700">
+                  <div className="w-3.5 h-3.5 rounded-full bg-stone-900 dark:bg-stone-100 border-2 border-white dark:border-stone-900  flex items-center justify-center group-hover:scale-130 transition-transform" />
+                  <div className="hidden group-hover:block absolute bottom-6 left-1/2 -translate-x-1/2 w-64 bg-stone-900 text-white text-xs font-mono p-3 shadow-xl z-30 pointer-events-none border border-stone-700">
                     <div className="text-amber-400 font-bold mb-1">
                       {m.year} · {m.category}
                     </div>
@@ -186,7 +186,7 @@ export const TimelineView: React.FC = () => {
                       selectAuthor(p.id);
                       openEntity(p.id, 'person');
                     }}
-                    className={`absolute h-6 rounded px-2.5 flex items-center justify-between text-xs font-mono cursor-pointer transition-all shadow-xs ${
+                    className={`absolute h-6 px-2.5 flex items-center justify-between text-xs font-mono cursor-pointer transition-all  ${
                       isActive
                         ? 'bg-amber-600 text-white font-bold ring-2 ring-amber-400 z-10'
                         : 'bg-stone-900 dark:bg-stone-200 hover:bg-stone-700 dark:hover:bg-white text-white dark:text-stone-950 font-semibold'
@@ -212,7 +212,7 @@ export const TimelineView: React.FC = () => {
             <span>Catalogued Works Produced ({worksInScope.length})</span>
           </div>
 
-          <div className="relative min-h-[160px] bg-stone-50 dark:bg-stone-900/60 rounded border border-stone-200 dark:border-stone-800 p-4">
+          <div className="relative min-h-[160px] bg-stone-50 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 p-4">
             {worksInScope.map((w, index) => {
               const leftPct = getPositionPercent(w.year);
               const staggerY = (index % 3) * 44;
@@ -224,8 +224,8 @@ export const TimelineView: React.FC = () => {
                   className="absolute cursor-pointer group -translate-x-1/2 transition-transform hover:z-30 hover:scale-105"
                   style={{ left: `${leftPct}%`, top: `${15 + staggerY}px` }}
                 >
-                  <div className="flex items-center gap-2 p-1.5 bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded shadow-xs hover:border-stone-900 dark:hover:border-amber-400 max-w-[200px] transition-colors">
-                    <div className="w-6 h-8 bg-stone-200 dark:bg-stone-800 rounded overflow-hidden shrink-0">
+                  <div className="flex items-center gap-2 p-1.5 bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700  hover:border-stone-900 dark:hover:border-amber-400 max-w-[200px] transition-colors">
+                    <div className="w-6 h-8 bg-stone-200 dark:bg-stone-800 overflow-hidden shrink-0">
                       <ArtworkVisualizer work={w} size="sm" showPalette={false} interactiveZoom={false} />
                     </div>
                     <div className="truncate text-left">
@@ -260,7 +260,7 @@ export const TimelineView: React.FC = () => {
                 <div key={pub.id} className="relative h-6 flex items-center">
                   <div
                     onClick={() => openEntity(pub.id, 'publication')}
-                    className="absolute h-5 bg-purple-900 dark:bg-purple-700 hover:bg-purple-800 dark:hover:bg-purple-600 text-white rounded px-2 flex items-center text-[11px] font-mono cursor-pointer transition-colors shadow-xs"
+                    className="absolute h-5 bg-purple-900 dark:bg-purple-700 hover:bg-purple-800 dark:hover:bg-purple-600 text-white px-2 flex items-center text-[11px] font-mono cursor-pointer transition-colors "
                     style={{ left: `${startPct}%`, width: `${widthPct}%` }}
                   >
                     <span className="truncate">{pub.title}</span>

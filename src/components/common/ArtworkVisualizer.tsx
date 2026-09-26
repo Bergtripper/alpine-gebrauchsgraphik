@@ -349,7 +349,7 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
     <div className="flex flex-col">
       {/* Lithograph Artwork Frame */}
       <div
-        className={`relative w-full ${heightClasses} bg-stone-100 dark:bg-stone-900 overflow-hidden border border-stone-300 dark:border-stone-700 shadow-sm group transition-all duration-300 hover:shadow-md hover:border-stone-500`}
+        className={`relative w-full ${heightClasses} bg-stone-100 dark:bg-stone-900 overflow-hidden border border-stone-300 dark:border-stone-700  group transition-all duration-300  hover:border-stone-500`}
       >
         {/* Subtle Archival Registration Crosshairs in corners */}
         <div className="absolute top-2 left-2 z-10 opacity-30 group-hover:opacity-75 transition-opacity text-[8px] font-mono text-stone-700 dark:text-stone-300 pointer-events-none">
@@ -382,7 +382,7 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
         </div>
 
         <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-          <span className="px-1.5 py-0.5 rounded bg-stone-950/80 text-white text-[8px] font-mono uppercase tracking-wider">
+          <span className="px-1.5 py-0.5 bg-stone-950/80 text-white text-[8px] font-mono uppercase tracking-wider">
             {hasRealImage ? 'Object image' : 'Analytical visualization'}
           </span>
         </div>
@@ -396,7 +396,7 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
                 setArtworkZoomId(work.id);
                 setZoomLevel(1);
               }}
-              className="px-3 py-1.5 bg-stone-900 text-white text-xs font-mono rounded hover:bg-black flex items-center gap-1.5 transition-colors border border-stone-600 shadow-lg cursor-pointer"
+              className="px-3 py-1.5 bg-stone-900 text-white text-xs font-mono hover:bg-black flex items-center gap-1.5 transition-colors border border-stone-600  cursor-pointer"
               title="Inspect high-resolution work"
             >
               <Maximize2 size={13} />
@@ -407,7 +407,7 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
                 e.stopPropagation();
                 openEntity(work.id, 'work');
               }}
-              className="px-3 py-1.5 bg-white text-stone-900 text-xs font-mono rounded hover:bg-stone-100 transition-colors shadow-lg cursor-pointer font-bold"
+              className="px-3 py-1.5 bg-white text-stone-900 text-xs font-mono hover:bg-stone-100 transition-colors  cursor-pointer font-bold"
             >
               Dossier ↗
             </button>
@@ -416,7 +416,7 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
 
         {/* Uncertainty / Date Tag */}
         <div className="absolute bottom-2 left-2 z-10 pointer-events-none">
-          <span className="text-[10px] font-mono tracking-wider px-1.5 py-0.5 bg-stone-900/90 text-white rounded border border-stone-700 shadow-xs">
+          <span className="text-[10px] font-mono tracking-wider px-1.5 py-0.5 bg-stone-900/90 text-white border border-stone-700 ">
             {work.yearDisplay} {work.isDateUncertain && '*'}
           </span>
         </div>
@@ -425,7 +425,7 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
       {/* Dominant Color Palette Strip */}
       {showPalette && work.colors && work.colors.length > 0 && (
         <div className="mt-2.5">
-          <div className="flex h-3 w-full rounded overflow-hidden border border-stone-300 dark:border-stone-700 shadow-2xs">
+          <div className="flex h-3 w-full overflow-hidden border border-stone-300 dark:border-stone-700 ">
             {work.colors.map((color, idx) => (
               <div
                 key={idx}
@@ -470,8 +470,8 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
               {!hasRealImage && (
                 <button
                   onClick={() => setShowLithoGrain(!showLithoGrain)}
-                  className={`px-2.5 py-1.5 text-xs font-mono rounded border transition-colors flex items-center gap-1 ${
-                    showLithoGrain ? 'bg-amber-500/20 text-amber-300 border-amber-500/40' : 'bg-stone-900 text-stone-400 border-stone-700'
+                  className={`px-2.5 py-1.5 text-xs font-mono border transition-colors flex items-center gap-1 ${
+                    showLithoGrain ? 'bg-stone-900 text-amber-300 border-stone-600' : 'bg-stone-900 text-stone-400 border-stone-700'
                   }`}
                   title="Toggle analytical lithograph grain texture"
                 >
@@ -482,28 +482,28 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
 
               <button
                 onClick={() => setZoomLevel((z) => Math.max(0.6, z - 0.25))}
-                className="p-2 bg-stone-900 hover:bg-stone-800 rounded border border-stone-700 text-stone-300"
+                className="p-2 bg-stone-900 hover:bg-stone-800 border border-stone-700 text-stone-300"
                 title="Zoom Out"
               >
                 <ZoomOut size={16} />
               </button>
               <button
                 onClick={() => setZoomLevel(1)}
-                className="p-2 bg-stone-900 hover:bg-stone-800 rounded border border-stone-700 text-stone-300"
+                className="p-2 bg-stone-900 hover:bg-stone-800 border border-stone-700 text-stone-300"
                 title="Reset Zoom"
               >
                 <RotateCcw size={16} />
               </button>
               <button
                 onClick={() => setZoomLevel((z) => Math.min(2.5, z + 0.25))}
-                className="p-2 bg-stone-900 hover:bg-stone-800 rounded border border-stone-700 text-stone-300"
+                className="p-2 bg-stone-900 hover:bg-stone-800 border border-stone-700 text-stone-300"
                 title="Zoom In"
               >
                 <ZoomIn size={16} />
               </button>
               <button
                 onClick={() => setArtworkZoomId(null)}
-                className="p-2 bg-stone-800 hover:bg-stone-700 rounded text-stone-200 ml-4 cursor-pointer"
+                className="p-2 bg-stone-800 hover:bg-stone-700 text-stone-200 ml-4 cursor-pointer"
               >
                 <X size={18} />
               </button>
@@ -516,7 +516,7 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
             onClick={(e) => e.stopPropagation()}
           >
             <div
-              className="w-[440px] max-w-full shadow-2xl transition-transform duration-200 border-4 border-stone-900 bg-stone-950 rounded-sm overflow-hidden"
+              className="w-[440px] max-w-full  transition-transform duration-200 border-4 border-stone-900 bg-stone-950  overflow-hidden"
               style={{ transform: `scale(${zoomLevel})` }}
             >
               {hasRealImage && realImage?.src ? (

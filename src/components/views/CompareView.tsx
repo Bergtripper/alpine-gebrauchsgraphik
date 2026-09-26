@@ -55,7 +55,7 @@ export const CompareView: React.FC = () => {
       <div className="space-y-8">
         {/* Comparative Altimetric Overlay (Unique Graphic) */}
         {(profile1.length > 0 || profile2.length > 0) && (
-          <div className="bg-stone-50 dark:bg-stone-900/40 border border-stone-200 dark:border-stone-800 rounded-xl p-6 space-y-4">
+          <div className="bg-stone-50 dark:bg-stone-900/40 border border-stone-200 dark:border-stone-800 p-6 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-amber-600" />
@@ -92,7 +92,7 @@ export const CompareView: React.FC = () => {
         )}
 
         {/* Side-by-Side Selector Controls */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800 rounded-lg p-5 shadow-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800  p-5 ">
           <div className="space-y-2">
             <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 dark:text-stone-500 block">
               RESEARCH SUBJECT A
@@ -101,7 +101,7 @@ export const CompareView: React.FC = () => {
               value={artist1?.id || ''}
               onChange={(e) => setCompareState((prev) => ({ ...prev, item1Id: e.target.value }))}
               aria-label="Select Research Subject A"
-              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-900 dark:focus:border-amber-400 font-mono"
+              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-900 dark:focus:border-amber-400 font-mono"
             >
               <option value="" className="dark:bg-stone-900">— Select an Author —</option>
               {PEOPLE.map((p) => (
@@ -120,7 +120,7 @@ export const CompareView: React.FC = () => {
               value={artist2?.id || ''}
               onChange={(e) => setCompareState((prev) => ({ ...prev, item2Id: e.target.value }))}
               aria-label="Select Research Subject B"
-              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-900 dark:focus:border-amber-400 font-mono"
+              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 focus:outline-none focus:border-stone-900 dark:focus:border-amber-400 font-mono"
             >
               <option value="" className="dark:bg-stone-900">— Select an Author to Compare —</option>
               {PEOPLE.map((p) => (
@@ -136,7 +136,7 @@ export const CompareView: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Column A */}
           {artist1 && conn1 ? (
-            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800 rounded-lg p-6 space-y-6 shadow-xs">
+            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800  p-6 space-y-6 ">
               <div className="border-b border-stone-200 dark:border-stone-800 pb-4">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 dark:text-stone-500">
                   SUBJECT A
@@ -152,7 +152,7 @@ export const CompareView: React.FC = () => {
                 </div>
                 <button
                   onClick={() => openEntity(artist1.id, 'person')}
-                  className="mt-3 text-xs font-mono font-bold text-stone-900 dark:text-amber-400 hover:underline flex items-center gap-1 cursor-pointer"
+                  className="mt-3 text-xs font-mono font-bold text-stone-900 dark:text-stone-300 hover:underline flex items-center gap-1 cursor-pointer"
                 >
                   Open Full Dossier ↗
                 </button>
@@ -178,11 +178,11 @@ export const CompareView: React.FC = () => {
                   Alpine Clients & Commissions
                 </h3>
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800">
+                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
                     <span className="text-[10px] text-stone-400 block">Catalogued Works</span>
                     <strong className="text-lg text-stone-900 dark:text-stone-100">{conn1.works.length}</strong>
                   </div>
-                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800">
+                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
                     <span className="text-[10px] text-stone-400 block">Client Bodies</span>
                     <strong className="text-lg text-stone-900 dark:text-stone-100">
                       {artist1.associatedCompanies.length + artist1.associatedInstitutions.length}
@@ -220,7 +220,7 @@ export const CompareView: React.FC = () => {
                 </h3>
                 <div className="flex flex-wrap gap-1.5">
                   {artist1.cities.map((c) => (
-                    <span key={c} className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800 rounded text-xs font-mono text-stone-700 dark:text-stone-300">
+                    <span key={c} className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-xs font-mono text-stone-700 dark:text-stone-300">
                       📍 {c}
                     </span>
                   ))}
@@ -228,7 +228,7 @@ export const CompareView: React.FC = () => {
               </div>
             </div>
           ) : (
-            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800 rounded-lg p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
+            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800  p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
               <Sliders size={28} className="mx-auto text-stone-400 dark:text-stone-600" />
               <div className="font-bold text-stone-800 dark:text-stone-200 text-sm">
                 No Subject A Selected
@@ -241,7 +241,7 @@ export const CompareView: React.FC = () => {
 
           {/* Column B */}
           {artist2 && conn2 ? (
-            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800 rounded-lg p-6 space-y-6 shadow-xs">
+            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800  p-6 space-y-6 ">
               <div className="border-b border-stone-200 dark:border-stone-800 pb-4">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 dark:text-stone-500">
                   SUBJECT B
@@ -257,7 +257,7 @@ export const CompareView: React.FC = () => {
                 </div>
                 <button
                   onClick={() => openEntity(artist2.id, 'person')}
-                  className="mt-3 text-xs font-mono font-bold text-stone-900 dark:text-amber-400 hover:underline flex items-center gap-1 cursor-pointer"
+                  className="mt-3 text-xs font-mono font-bold text-stone-900 dark:text-stone-300 hover:underline flex items-center gap-1 cursor-pointer"
                 >
                   Open Full Dossier ↗
                 </button>
@@ -283,11 +283,11 @@ export const CompareView: React.FC = () => {
                   Alpine Clients & Commissions
                 </h3>
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800">
+                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
                     <span className="text-[10px] text-stone-400 block">Catalogued Works</span>
                     <strong className="text-lg text-stone-900 dark:text-stone-100">{conn2.works.length}</strong>
                   </div>
-                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800">
+                  <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
                     <span className="text-[10px] text-stone-400 block">Client Bodies</span>
                     <strong className="text-lg text-stone-900 dark:text-stone-100">
                       {artist2.associatedCompanies.length + artist2.associatedInstitutions.length}
@@ -325,7 +325,7 @@ export const CompareView: React.FC = () => {
                 </h3>
                 <div className="flex flex-wrap gap-1.5">
                   {artist2.cities.map((c) => (
-                    <span key={c} className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800 rounded text-xs font-mono text-stone-700 dark:text-stone-300">
+                    <span key={c} className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-xs font-mono text-stone-700 dark:text-stone-300">
                       📍 {c}
                     </span>
                   ))}
@@ -333,7 +333,7 @@ export const CompareView: React.FC = () => {
               </div>
             </div>
           ) : (
-            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800 rounded-lg p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
+            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800  p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
               <Sliders size={28} className="mx-auto text-stone-400 dark:text-stone-600" />
               <div className="font-bold text-stone-800 dark:text-stone-200 text-sm">
                 No Subject B Selected
@@ -356,7 +356,7 @@ export const CompareView: React.FC = () => {
     return (
       <div className="space-y-8">
         {/* Work Selectors */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800 rounded-lg p-5 shadow-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800  p-5 ">
           <div className="space-y-2">
             <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 dark:text-stone-500 block">
               WORK A
@@ -365,7 +365,7 @@ export const CompareView: React.FC = () => {
               value={work1?.id || ''}
               onChange={(e) => setCompareState((prev) => ({ ...prev, item1Id: e.target.value }))}
               aria-label="Select Work A"
-              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 font-mono"
+              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 font-mono"
             >
               <option value="" className="dark:bg-stone-900">— Select Work A —</option>
               {WORKS.map((w) => (
@@ -384,7 +384,7 @@ export const CompareView: React.FC = () => {
               value={work2?.id || ''}
               onChange={(e) => setCompareState((prev) => ({ ...prev, item2Id: e.target.value }))}
               aria-label="Select Work B"
-              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 font-mono"
+              className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 px-3 py-2 text-sm font-bold text-stone-900 dark:text-stone-100 font-mono"
             >
               <option value="" className="dark:bg-stone-900">— Select Work B to Compare —</option>
               {WORKS.map((w) => (
@@ -399,7 +399,7 @@ export const CompareView: React.FC = () => {
         {/* Side by side comparison */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {work1 ? (
-            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800 rounded-lg p-6 space-y-4 shadow-xs">
+            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800  p-6 space-y-4 ">
               <ArtworkVisualizer work={work1} size="lg" showPalette={true} interactiveZoom={true} />
               <h3 className="text-xl font-serif font-bold text-stone-900 dark:text-stone-100">{work1.title}</h3>
               <dl className="divide-y divide-stone-200 dark:divide-stone-800 text-xs font-mono">
@@ -434,7 +434,7 @@ export const CompareView: React.FC = () => {
               </dl>
             </div>
           ) : (
-            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800 rounded-lg p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
+            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800  p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
               <Sliders size={28} className="mx-auto text-stone-400 dark:text-stone-600" />
               <div className="font-bold text-stone-800 dark:text-stone-200 text-sm">
                 No Work A Selected
@@ -446,7 +446,7 @@ export const CompareView: React.FC = () => {
           )}
 
           {work2 ? (
-            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800 rounded-lg p-6 space-y-4 shadow-xs">
+            <div className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800  p-6 space-y-4 ">
               <ArtworkVisualizer work={work2} size="lg" showPalette={true} interactiveZoom={true} />
               <h3 className="text-xl font-serif font-bold text-stone-900 dark:text-stone-100">{work2.title}</h3>
               <dl className="divide-y divide-stone-200 dark:divide-stone-800 text-xs font-mono">
@@ -481,7 +481,7 @@ export const CompareView: React.FC = () => {
               </dl>
             </div>
           ) : (
-            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800 rounded-lg p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
+            <div className="bg-white dark:bg-[#12161f] border border-dashed border-stone-300 dark:border-stone-800  p-10 text-center space-y-3 font-mono text-xs shadow-2xs">
               <Sliders size={28} className="mx-auto text-stone-400 dark:text-stone-600" />
               <div className="font-bold text-stone-800 dark:text-stone-200 text-sm">
                 No Work B Selected
@@ -514,12 +514,12 @@ export const CompareView: React.FC = () => {
           </div>
 
           {/* Mode Switcher */}
-          <div className="flex bg-stone-100 dark:bg-stone-800 p-1 rounded-md text-xs font-mono font-semibold border border-stone-300 dark:border-stone-700">
+          <div className="flex bg-stone-100 dark:bg-stone-800 p-1  text-xs font-mono font-semibold border border-stone-300 dark:border-stone-700">
             <button
               onClick={() => handleModeChange('artist')}
-              className={`px-3 py-1.5 rounded transition-colors cursor-pointer ${
+              className={`px-3 py-1.5 transition-colors cursor-pointer ${
                 compareState.mode === 'artist'
-                  ? 'bg-white dark:bg-stone-900 text-stone-950 dark:text-white shadow-xs font-bold'
+                  ? 'bg-white dark:bg-stone-900 text-stone-950 dark:text-white  font-bold'
                   : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'
               }`}
             >
@@ -527,9 +527,9 @@ export const CompareView: React.FC = () => {
             </button>
             <button
               onClick={() => handleModeChange('work')}
-              className={`px-3 py-1.5 rounded transition-colors cursor-pointer ${
+              className={`px-3 py-1.5 transition-colors cursor-pointer ${
                 compareState.mode === 'work'
-                  ? 'bg-white dark:bg-stone-900 text-stone-950 dark:text-white shadow-xs font-bold'
+                  ? 'bg-white dark:bg-stone-900 text-stone-950 dark:text-white  font-bold'
                   : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'
               }`}
             >

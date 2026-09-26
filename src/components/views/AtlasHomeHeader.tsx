@@ -38,7 +38,7 @@ export const AtlasHomeHeader: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
           <div className="space-y-1.5 max-w-3xl">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] uppercase tracking-widest font-mono font-bold px-2 py-0.5 rounded bg-stone-200 dark:bg-stone-800 text-stone-800 dark:text-stone-300">
+              <span className="text-[10px] uppercase tracking-widest font-mono font-bold px-2 py-0.5 bg-stone-200 dark:bg-stone-800 text-stone-800 dark:text-stone-300">
                 DOTZERO
               </span>
               <span className="text-[10px] uppercase tracking-widest font-mono text-stone-500 dark:text-stone-400">
@@ -63,7 +63,7 @@ export const AtlasHomeHeader: React.FC = () => {
             {/* Quick Theme Switcher in Banner */}
             <button
               onClick={toggleTheme}
-              className="px-3 py-1.5 rounded text-xs font-mono border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer"
+              className="px-3 py-1.5 text-xs font-mono border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer"
               title="Inverti tema globale"
             >
               {theme === 'dark' ? (
@@ -81,7 +81,7 @@ export const AtlasHomeHeader: React.FC = () => {
 
             <button
               onClick={() => setIsCollapsed(!isCollapsed)}
-              className="p-1.5 text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-stone-100 border border-stone-300 dark:border-stone-700 rounded bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors text-xs font-mono flex items-center gap-1 cursor-pointer"
+              className="p-1.5 text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-stone-100 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors text-xs font-mono flex items-center gap-1 cursor-pointer"
               title="Toggle Project Metrics"
             >
               {isCollapsed ? (
@@ -103,7 +103,7 @@ export const AtlasHomeHeader: React.FC = () => {
           <div className="mt-6 space-y-6 pt-5 border-t border-stone-200/80 dark:border-stone-800/80">
             {/* Live Data-Driven Statistics Grid with Alpine Accent Borders */}
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs font-mono">
-              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-red-500 rounded shadow-xs hover:border-stone-400 dark:hover:border-stone-600 transition-all">
+              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-red-500  hover:border-stone-400 dark:hover:border-stone-600 transition-all">
                 <span className="text-2xl font-bold font-mono text-stone-950 dark:text-stone-100 block">
                   {ATLAS_STATS.peopleCount}
                 </span>
@@ -111,7 +111,7 @@ export const AtlasHomeHeader: React.FC = () => {
                   Creators & Artists
                 </span>
               </div>
-              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-blue-500 rounded shadow-xs hover:border-stone-400 dark:hover:border-stone-600 transition-all">
+              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-blue-500  hover:border-stone-400 dark:hover:border-stone-600 transition-all">
                 <span className="text-2xl font-bold font-mono text-stone-950 dark:text-stone-100 block">
                   {ATLAS_STATS.worksCount}
                 </span>
@@ -119,7 +119,7 @@ export const AtlasHomeHeader: React.FC = () => {
                   Posters & Objects
                 </span>
               </div>
-              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-amber-500 rounded shadow-xs hover:border-stone-400 dark:hover:border-stone-600 transition-all">
+              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-amber-500  hover:border-stone-400 dark:hover:border-stone-600 transition-all">
                 <span className="text-2xl font-bold font-mono text-stone-950 dark:text-stone-100 block">
                   {ATLAS_STATS.placesCount}
                 </span>
@@ -127,7 +127,7 @@ export const AtlasHomeHeader: React.FC = () => {
                   Alpine Nodes
                 </span>
               </div>
-              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-purple-500 rounded shadow-xs hover:border-stone-400 dark:hover:border-stone-600 transition-all">
+              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-purple-500  hover:border-stone-400 dark:hover:border-stone-600 transition-all">
                 <span className="text-2xl font-bold font-mono text-stone-950 dark:text-stone-100 block">
                   {ATLAS_STATS.publicationsCount}
                 </span>
@@ -135,7 +135,7 @@ export const AtlasHomeHeader: React.FC = () => {
                   Periodicals & Catalogues
                 </span>
               </div>
-              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-emerald-500 rounded shadow-xs hover:border-stone-400 dark:hover:border-stone-600 transition-all">
+              <div className="p-3 bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 border-l-3 border-l-emerald-500  hover:border-stone-400 dark:hover:border-stone-600 transition-all">
                 <span className="text-2xl font-bold font-mono text-stone-950 dark:text-stone-100 block">
                   {ATLAS_STATS.connectionsCount}
                 </span>
@@ -156,7 +156,7 @@ export const AtlasHomeHeader: React.FC = () => {
                   <button
                     key={idx}
                     onClick={pathway.action}
-                    className="px-2.5 py-1 rounded bg-stone-100 dark:bg-stone-800/80 hover:bg-stone-900 hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 transition-all cursor-pointer text-[11px]"
+                    className="px-2.5 py-1 bg-stone-100 dark:bg-stone-800/80 hover:bg-stone-900 hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 transition-all cursor-pointer text-[11px]"
                   >
                     {pathway.label} →
                   </button>
@@ -172,35 +172,35 @@ export const AtlasHomeHeader: React.FC = () => {
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setActiveTab('people')}
-                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 rounded flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Users size={13} />
                   <span>People</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('works')}
-                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 rounded flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Compass size={13} />
                   <span>Works</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('map')}
-                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 rounded flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <MapPin size={13} />
                   <span>Map</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('timeline')}
-                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 rounded flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Clock size={13} />
                   <span>Timeline</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('visual_dna')}
-                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 rounded flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Dna size={13} />
                   <span>Visual DNA</span>

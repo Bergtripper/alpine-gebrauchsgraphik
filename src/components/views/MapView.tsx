@@ -72,9 +72,9 @@ export const MapView: React.FC = () => {
         {/* Top Hierarchical Scale & Geographic Filter Bar */}
         <div className="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2 max-w-[calc(100vw-2rem)]">
           {/* Geographic Scale Switcher (Section 3: ALPS → REGIONS → CITIES) */}
-          <div className="bg-white/95 dark:bg-[#12161f]/95 backdrop-blur-md border border-stone-300 dark:border-stone-700 rounded shadow-md px-3 py-1.5 flex items-center gap-2 text-xs font-mono">
+          <div className="bg-white/95 dark:bg-[#12161f]/95  border border-stone-300 dark:border-stone-700  px-3 py-1.5 flex items-center gap-2 text-xs font-mono">
             <span className="text-[10px] text-stone-500 uppercase tracking-wider font-bold flex items-center gap-1">
-              <Layers size={11} className="text-amber-500" />
+              <Layers size={11} className="text-stone-700" />
               <span>SCALE:</span>
             </span>
             {(['alps', 'regions', 'cities'] as MapScale[]).map((scale) => (
@@ -82,9 +82,9 @@ export const MapView: React.FC = () => {
                 key={scale}
                 onClick={() => setActiveMapScale(scale)}
                 className={cn(
-                  'px-2 py-0.5 rounded text-[10px] uppercase font-mono transition-colors cursor-pointer',
+                  'px-2 py-0.5 text-[10px] uppercase font-mono transition-colors cursor-pointer',
                   activeMapScale === scale
-                    ? 'bg-stone-900 dark:bg-amber-400 text-white dark:text-stone-950 font-bold'
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold'
                     : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
                 )}
               >
@@ -95,7 +95,7 @@ export const MapView: React.FC = () => {
 
           {/* Region selector if REGIONS or CITIES scale */}
           {activeMapScale !== 'alps' && (
-            <div className="bg-white/95 dark:bg-[#12161f]/95 backdrop-blur-md border border-stone-300 dark:border-stone-700 rounded shadow-md px-2 py-1 flex items-center gap-1 text-xs font-mono">
+            <div className="bg-white/95 dark:bg-[#12161f]/95  border border-stone-300 dark:border-stone-700  px-2 py-1 flex items-center gap-1 text-xs font-mono">
               <select
                 value={activeRegion}
                 onChange={(e) => setActiveRegion(e.target.value)}
@@ -113,8 +113,8 @@ export const MapView: React.FC = () => {
 
           {/* Author Universe Scoped Geographic Banner */}
           {activeAuthor && (
-            <div className="bg-amber-50/95 dark:bg-amber-950/80 backdrop-blur-md border border-amber-300 dark:border-amber-700 rounded shadow-md px-3 py-1.5 flex items-center gap-2 text-xs font-mono text-amber-950 dark:text-amber-200">
-              <span className="font-bold text-[10px] uppercase bg-amber-600 text-white px-1.5 py-0.5 rounded">
+            <div className="bg-[#F6F4EE]/95 dark:bg-[#101217]/95  border border-stone-400 dark:border-stone-600  px-3 py-1.5 flex items-center gap-2 text-xs font-mono text-stone-900 dark:text-stone-200">
+              <span className="font-bold text-[10px] uppercase bg-amber-600 text-white px-1.5 py-0.5 ">
                 AUTHOR GEO
               </span>
               <span>
@@ -124,16 +124,16 @@ export const MapView: React.FC = () => {
           )}
 
           {/* Relationship Route Type Filter (Section 11, 12) */}
-          <div className="hidden sm:flex bg-white/95 dark:bg-[#12161f]/95 backdrop-blur-md border border-stone-300 dark:border-stone-700 rounded shadow-md px-2 py-1 items-center gap-1 text-xs font-mono">
+          <div className="hidden sm:flex bg-white/95 dark:bg-[#12161f]/95  border border-stone-300 dark:border-stone-700  px-2 py-1 items-center gap-1 text-xs font-mono">
             <span className="text-[10px] text-stone-400 uppercase font-semibold">ROUTE:</span>
             {(['all', 'designed', 'printed', 'commissioned', 'represented'] as const).map((mode) => (
               <button
                 key={mode}
                 onClick={() => setFilterRouteType(mode)}
                 className={cn(
-                  'px-1.5 py-0.5 rounded text-[9px] uppercase font-mono transition-colors cursor-pointer',
+                  'px-1.5 py-0.5 text-[9px] uppercase font-mono transition-colors cursor-pointer',
                   filterRouteType === mode
-                    ? 'bg-amber-500 text-stone-950 font-bold'
+                    ? 'bg-stone-900 text-stone-950 font-bold'
                     : 'text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white'
                 )}
               >
@@ -371,10 +371,10 @@ export const MapView: React.FC = () => {
         </svg>
 
         {/* Map Legend */}
-        <div className="absolute bottom-4 left-4 z-20 bg-white/95 dark:bg-[#12161f]/95 backdrop-blur-md border border-stone-300 dark:border-stone-700 rounded p-2.5 text-[10px] font-mono text-stone-600 dark:text-stone-400 space-y-1">
+        <div className="absolute bottom-4 left-4 z-20 bg-white/95 dark:bg-[#12161f]/95  border border-stone-300 dark:border-stone-700 p-2.5 text-[10px] font-mono text-stone-600 dark:text-stone-400 space-y-1">
           <div className="font-bold text-stone-900 dark:text-stone-100 uppercase">Cartographic Legend</div>
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-stone-900 inline-block" />
             <span>Geographic Node</span>
           </div>
           <div className="flex items-center gap-2">
@@ -392,7 +392,7 @@ export const MapView: React.FC = () => {
             <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400">
               CITY CLUSTER · {selectedPlace.region}
             </span>
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 font-bold">
+            <span className="text-[10px] font-mono px-1.5 py-0.5 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 font-bold">
               {filters.startYear}—{filters.endYear}
             </span>
           </div>
@@ -404,13 +404,13 @@ export const MapView: React.FC = () => {
             Elevation: {selectedPlace.elevation} · {selectedPlace.country}
           </div>
 
-          <div className="mt-4 p-3 bg-stone-50 dark:bg-stone-900/50 rounded border border-stone-200 dark:border-stone-800">
+          <div className="mt-4 p-3 bg-stone-50 dark:bg-stone-900/50 border border-stone-200 dark:border-stone-800">
             <ElevationProfile 
               points={generatePlaceProfile(selectedPlace.id, selectedPlace.elevationMeters)} 
               height={50} 
               showAxes={true}
               label="Altimetric Section"
-              color="stroke-amber-600"
+              color="stroke-stone-700 dark:stroke-stone-300"
             />
           </div>
 
@@ -420,14 +420,14 @@ export const MapView: React.FC = () => {
 
           {/* Section 10: City Cluster Local Concentration Breakdown */}
           {selectedCluster && (
-            <div className="mt-3 p-3 bg-stone-50 dark:bg-stone-900/80 rounded border border-stone-200 dark:border-stone-800 space-y-1.5">
-              <span className="text-[10px] font-mono font-bold uppercase text-amber-600 dark:text-amber-400 block">
+            <div className="mt-3 p-3 bg-stone-50 dark:bg-stone-900/80 border border-stone-200 dark:border-stone-800 space-y-1.5">
+              <span className="text-[10px] font-mono font-bold uppercase text-stone-900 dark:text-stone-100 block">
                 Cluster Concentration ({selectedCluster.activeDecade})
               </span>
               <ul className="text-[11px] font-mono text-stone-600 dark:text-stone-300 space-y-1">
                 {selectedCluster.featuredActivities.map((act, aIdx) => (
                   <li key={aIdx} className="flex items-start gap-1.5">
-                    <span className="text-amber-500">•</span>
+                    <span className="text-stone-700">•</span>
                     <span>{act}</span>
                   </li>
                 ))}
@@ -437,7 +437,7 @@ export const MapView: React.FC = () => {
 
           <button
             onClick={() => openEntity(selectedPlace.id, 'place')}
-            className="mt-3 text-xs font-mono font-bold text-stone-900 dark:text-amber-400 hover:underline flex items-center gap-1 cursor-pointer"
+            className="mt-3 text-xs font-mono font-bold text-stone-900 dark:text-stone-100 hover:underline flex items-center gap-1 cursor-pointer"
           >
             <span>Open Comprehensive Place Dossier</span>
             <ArrowRight size={12} />
@@ -446,19 +446,19 @@ export const MapView: React.FC = () => {
 
         {/* Quantified Breakdown */}
         <div className="py-4 border-b border-stone-200 dark:border-stone-800 grid grid-cols-2 gap-2 text-xs font-mono">
-          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded">
+          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 ">
             <span className="text-base font-bold text-stone-950 dark:text-stone-100 block">{connections.people.length}</span>
             <span className="text-[11px] text-stone-500 dark:text-stone-400">Active Creators</span>
           </div>
-          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded">
+          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 ">
             <span className="text-base font-bold text-stone-950 dark:text-stone-100 block">{connections.works.length}</span>
             <span className="text-[11px] text-stone-500 dark:text-stone-400">Catalogued Works</span>
           </div>
-          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded">
+          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 ">
             <span className="text-base font-bold text-stone-950 dark:text-stone-100 block">{connections.organizations.length}</span>
             <span className="text-[11px] text-stone-500 dark:text-stone-400">Institutions</span>
           </div>
-          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded">
+          <div className="p-2.5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 ">
             <span className="text-base font-bold text-stone-950 dark:text-stone-100 block">{connections.publications.length}</span>
             <span className="text-[11px] text-stone-500 dark:text-stone-400">Periodicals</span>
           </div>
@@ -475,9 +475,9 @@ export const MapView: React.FC = () => {
                 <div
                   key={p.id}
                   onClick={() => selectNode(p.id, 'person')}
-                  className="p-2 bg-stone-50 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-800 rounded cursor-pointer flex items-center justify-between text-xs font-mono transition-colors group"
+                  className="p-2 bg-stone-50 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-800 cursor-pointer flex items-center justify-between text-xs font-mono transition-colors group"
                 >
-                  <span className="font-semibold text-stone-900 dark:text-stone-100 group-hover:text-amber-500">
+                  <span className="font-semibold text-stone-900 dark:text-stone-100 group-hover:text-stone-700">
                     {p.name}
                   </span>
                   <span className="text-[11px] text-stone-500 dark:text-stone-400">{p.activeYears}</span>
@@ -497,9 +497,9 @@ export const MapView: React.FC = () => {
                   <div
                     key={w.id}
                     onClick={() => selectNode(w.id, 'work')}
-                    className="p-2 bg-stone-50 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-800 rounded cursor-pointer flex items-center gap-2 text-xs transition-colors group"
+                    className="p-2 bg-stone-50 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-800 cursor-pointer flex items-center gap-2 text-xs transition-colors group"
                   >
-                    <div className="w-9 h-12 shrink-0 bg-stone-200 dark:bg-stone-800 rounded overflow-hidden">
+                    <div className="w-9 h-12 shrink-0 bg-stone-200 dark:bg-stone-800 overflow-hidden">
                       <ArtworkVisualizer work={w} size="sm" showPalette={false} interactiveZoom={false} />
                     </div>
                     <div className="truncate">

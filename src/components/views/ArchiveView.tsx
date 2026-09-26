@@ -60,16 +60,16 @@ export const ArchiveView: React.FC = () => {
       </div>
 
       {/* Filter & Search Bar */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800 rounded-lg p-3 text-xs font-mono transition-colors">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800  p-3 text-xs font-mono transition-colors">
         <div className="flex items-center gap-2">
           <span className="text-stone-400 dark:text-stone-500 uppercase text-[10px]">Filter Status:</span>
           {['all', 'ORIGINAL OBJECT', 'REPRODUCTION', 'DIGITAL SOURCE'].map((t) => (
             <button
               key={t}
               onClick={() => setSelectedType(t)}
-              className={`px-2.5 py-1 rounded transition-colors cursor-pointer ${
+              className={`px-2.5 py-1 transition-colors cursor-pointer ${
                 selectedType === t
-                  ? 'bg-stone-900 dark:bg-amber-400 text-white dark:text-stone-950 font-bold'
+                  ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold'
                   : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
               }`}
             >
@@ -83,7 +83,7 @@ export const ArchiveView: React.FC = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search by accession # or provenance..."
-          className="border border-stone-300 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 rounded px-3 py-1 text-stone-900 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:border-stone-800 dark:focus:border-amber-400 font-mono"
+          className="border border-stone-300 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 px-3 py-1 text-stone-900 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:border-stone-800 dark:focus:border-amber-400 font-mono"
         />
       </div>
 
@@ -92,13 +92,13 @@ export const ArchiveView: React.FC = () => {
         {filteredArchive.map((item) => (
           <div
             key={item.id}
-            className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800 rounded-lg p-6 space-y-4 hover:border-stone-500 dark:hover:border-stone-600 transition-all shadow-xs flex flex-col justify-between"
+            className="bg-white dark:bg-[#12161f] border border-stone-300 dark:border-stone-800  p-6 space-y-4 hover:border-stone-500 dark:hover:border-stone-600 transition-all  flex flex-col justify-between"
           >
             <div className="space-y-3">
               {/* Type Classification & Call Number */}
               <div className="flex items-center justify-between">
                 <span
-                  className={`text-[10px] font-mono uppercase tracking-wider font-bold px-2 py-0.5 rounded border ${getBadgeStyle(
+                  className={`text-[10px] font-mono uppercase tracking-wider font-bold px-2 py-0.5 border ${getBadgeStyle(
                     item.objectType
                   )}`}
                 >
@@ -158,7 +158,7 @@ export const ArchiveView: React.FC = () => {
               {item.relatedWorkIds.length > 0 && (
                 <button
                   onClick={() => openEntity(item.relatedWorkIds[0], 'work')}
-                  className="text-stone-900 dark:text-amber-400 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+                  className="text-stone-900 dark:text-stone-300 font-bold hover:underline flex items-center gap-1 cursor-pointer"
                 >
                   <span>Associated Work Dossier</span>
                   <ExternalLink size={12} />
