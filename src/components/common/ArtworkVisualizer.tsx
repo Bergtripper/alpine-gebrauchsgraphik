@@ -361,10 +361,10 @@ export const ArtworkVisualizer: React.FC<ArtworkVisualizerProps> = ({
 
         {/* CMYK Test Dots Strip on side */}
         <div className="absolute right-1.5 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-1 opacity-25 group-hover:opacity-60 transition-opacity pointer-events-none">
-          <span className="w-1.5 h-1.5 -full bg-cyan-500" />
-          <span className="w-1.5 h-1.5 -full bg-pink-500" />
-          <span className="w-1.5 h-1.5 -full bg-yellow-400" />
-          <span className="w-1.5 h-1.5 -full bg-black" />
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+          <span className="w-1.5 h-1.5 rounded-full bg-pink-500" />
+          <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+          <span className="w-1.5 h-1.5 rounded-full bg-black" />
         </div>
 
         {/* Historical object image when available; analytical visualization remains the fallback. */}
