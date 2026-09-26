@@ -22,43 +22,43 @@ export const EntityBadge: React.FC<EntityBadgeProps> = ({
     person: {
       label: 'Person',
       icon: User,
-      color: 'bg-red-500/10 text-red-700 dark:text-red-400 border-red-300 dark:border-red-900/60',
+      color: 'bg-transparent text-stone-700 dark:text-stone-300 border-stone-400 dark:border-stone-600',
       dot: 'bg-red-500',
     },
     work: {
       label: 'Work',
       icon: Image,
-      color: 'bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-900/60',
+      color: 'bg-transparent text-stone-700 dark:text-stone-300 border-stone-400 dark:border-stone-600',
       dot: 'bg-blue-500',
     },
     place: {
       label: 'Place',
       icon: MapPin,
-      color: 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-900/60',
+      color: 'bg-transparent text-stone-700 dark:text-stone-300 border-stone-400 dark:border-stone-600',
       dot: 'bg-amber-500',
     },
     organization: {
       label: 'Organization',
       icon: Building2,
-      color: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-300 dark:border-emerald-900/60',
+      color: 'bg-transparent text-stone-700 dark:text-stone-300 border-stone-400 dark:border-stone-600',
       dot: 'bg-emerald-500',
     },
     publication: {
       label: 'Publication',
       icon: BookOpen,
-      color: 'bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-300 dark:border-purple-900/60',
+      color: 'bg-transparent text-stone-700 dark:text-stone-300 border-stone-400 dark:border-stone-600',
       dot: 'bg-purple-500',
     },
     theme: {
       label: 'Theme',
       icon: Tag,
-      color: 'bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-300 dark:border-rose-900/60',
+      color: 'bg-transparent text-stone-700 dark:text-stone-300 border-stone-400 dark:border-stone-600',
       dot: 'bg-rose-500',
     },
     archiveItem: {
       label: 'Archive',
       icon: Archive,
-      color: 'bg-stone-500/10 text-stone-700 dark:text-stone-400 border-stone-300 dark:border-stone-800',
+      color: 'bg-transparent text-stone-700 dark:text-stone-300 border-stone-400 dark:border-stone-600',
       dot: 'bg-stone-500',
     },
   }[type];
@@ -75,7 +75,7 @@ export const EntityBadge: React.FC<EntityBadgeProps> = ({
   return (
     <span
       className={cn(
-        'inline-flex items-center font-mono font-medium rounded-sm border uppercase tracking-wider select-none',
+        'inline-flex items-center font-mono font-medium border uppercase tracking-[0.12em] select-none',
         config.color,
         sizeClasses,
         className
@@ -99,27 +99,27 @@ export const ResearchStatusBadge: React.FC<{
   const config: Record<string, { label: string; style: string; badge: string }> = {
     CONFIRMED: {
       label: 'CONFIRMED',
-      style: 'border-emerald-400/40 text-emerald-700 dark:text-emerald-400 bg-emerald-500/10',
+      style: 'border-emerald-400/40 text-emerald-700 dark:text-emerald-400 bg-transparent',
       badge: '●',
     },
     ATTRIBUTED: {
       label: 'ATTRIBUTED',
-      style: 'border-blue-400/40 text-blue-700 dark:text-blue-400 bg-blue-500/10',
+      style: 'border-blue-400/40 text-blue-700 dark:text-blue-400 bg-transparent',
       badge: '◐',
     },
     PROBABLE: {
       label: 'PROBABLE',
-      style: 'border-amber-400/40 text-amber-700 dark:text-amber-400 bg-amber-500/10',
+      style: 'border-amber-400/40 text-amber-700 dark:text-amber-400 bg-transparent',
       badge: '◑',
     },
     UNVERIFIED: {
       label: 'UNVERIFIED',
-      style: 'border-purple-400/40 text-purple-700 dark:text-purple-400 bg-purple-500/10',
+      style: 'border-purple-400/40 text-purple-700 dark:text-purple-400 bg-transparent',
       badge: '?',
     },
     UNIDENTIFIED: {
       label: 'UNIDENTIFIED',
-      style: 'border-stone-400/50 text-stone-700 dark:text-stone-300 bg-stone-500/15 border-dashed',
+      style: 'border-stone-400/50 text-stone-700 dark:text-stone-300 bg-transparent border-dashed',
       badge: '⊗',
     },
   };
@@ -129,7 +129,7 @@ export const ResearchStatusBadge: React.FC<{
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1 font-mono font-semibold tracking-wider rounded px-1.5 py-0.5 border text-[9px] uppercase select-none',
+        'inline-flex items-center gap-1 font-mono font-semibold tracking-[0.12em] px-1.5 py-0.5 border text-[9px] uppercase select-none',
         current.style,
         size === 'sm' && 'text-[10px] px-2 py-0.5',
         className

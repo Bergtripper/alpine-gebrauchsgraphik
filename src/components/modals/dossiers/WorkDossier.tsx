@@ -29,7 +29,7 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
         <div className="text-xs font-mono text-stone-600 mt-1 flex flex-wrap items-center gap-2">
           <button
             onClick={() => openEntity(work.creatorId, 'person')}
-            className="text-stone-900 font-semibold underline underline-offset-2 hover:text-blue-900 cursor-pointer"
+            className="text-stone-900 font-semibold underline underline-offset-2 hover:text-stone-500 cursor-pointer"
           >
             {work.creatorName}
           </button>
@@ -57,9 +57,9 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
           </h3>
           <dl className="divide-y divide-stone-200 text-xs font-mono">
             {work.hotelName && (
-              <div className="py-2 flex justify-between bg-amber-50 px-2 rounded">
-                <dt className="text-amber-800 font-semibold">Grand Hotel Destination:</dt>
-                <dd className="font-bold text-amber-950">{work.hotelName}</dd>
+              <div className="py-2 flex justify-between bg-transparent px-2">
+                <dt className="text-stone-600 font-semibold">Grand Hotel Destination:</dt>
+                <dd className="font-bold text-stone-900">{work.hotelName}</dd>
               </div>
             )}
             <div className="py-2 flex justify-between">
@@ -99,20 +99,20 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
             <h4 className="text-xs font-mono uppercase tracking-widest text-stone-500 mb-2">
               Visual DNA Archetype
             </h4>
-            <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
-              <div className="p-2 bg-stone-100 rounded">
+            <div className="grid grid-cols-2 gap-px border border-stone-300 bg-stone-300 text-[11px] font-mono">
+              <div className="p-2 bg-[#F7F5EE] dark:bg-[#101217]">
                 <span className="text-stone-500 block">Typography:</span>
                 <span className="font-bold text-stone-900 uppercase">{work.visualCharacteristics.typography}</span>
               </div>
-              <div className="p-2 bg-stone-100 rounded">
+              <div className="p-2 bg-[#F7F5EE] dark:bg-[#101217]">
                 <span className="text-stone-500 block">Composition:</span>
                 <span className="font-bold text-stone-900 uppercase">{work.visualCharacteristics.composition}</span>
               </div>
-              <div className="p-2 bg-stone-100 rounded">
+              <div className="p-2 bg-[#F7F5EE] dark:bg-[#101217]">
                 <span className="text-stone-500 block">Figure:</span>
                 <span className="font-bold text-stone-900 uppercase">{work.visualCharacteristics.figure}</span>
               </div>
-              <div className="p-2 bg-stone-100 rounded">
+              <div className="p-2 bg-[#F7F5EE] dark:bg-[#101217]">
                 <span className="text-stone-500 block">Style:</span>
                 <span className="font-bold text-stone-900 uppercase">{work.visualCharacteristics.style}</span>
               </div>
@@ -126,7 +126,7 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
                 setComparison('work', work.id, '');
                 closeEntity();
               }}
-              className="w-full py-2 bg-stone-900 text-white text-xs font-mono rounded hover:bg-black transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full py-2 bg-stone-900 text-white text-xs font-mono hover:bg-black transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <Sliders size={13} />
               <span>Compare Side-by-Side ↗</span>
@@ -136,7 +136,7 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
       </div>
 
       {/* Source citation */}
-      <div className="p-3.5 bg-stone-50 border border-stone-200 rounded text-xs font-mono space-y-1">
+      <div className="py-3.5 border-y border-stone-300 dark:border-stone-700 text-xs font-mono space-y-1">
         <div className="flex items-center justify-between text-stone-500 text-[10px] uppercase">
           <span>Verified Source Reference</span>
           <span>SOURCE ↗</span>

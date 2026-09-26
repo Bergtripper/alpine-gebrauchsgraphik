@@ -58,7 +58,7 @@ export const Breadcrumbs: React.FC = () => {
         {activeTab === 'map' && (
           <>
             <ChevronRight size={11} className="text-stone-400 dark:text-stone-600 shrink-0" />
-            <span className="text-amber-600 dark:text-amber-400 uppercase font-semibold">
+            <span className="text-stone-900 dark:text-stone-100 uppercase font-semibold">
               SCALE: {activeMapScale.toUpperCase()}
             </span>
             {activeRegion !== 'all' && (
@@ -86,7 +86,7 @@ export const Breadcrumbs: React.FC = () => {
       {/* Active Temporal Filter Badge */}
       <div className="hidden md:flex items-center gap-2 text-stone-500 dark:text-stone-400">
         <span>EPOCH:</span>
-        <span className="px-1.5 py-0.5 rounded bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-200 font-bold">
+        <span className="px-1.5 py-0.5 border-l border-stone-400 dark:border-stone-600 text-stone-900 dark:text-stone-200 font-bold">
           {filters.startYear}—{filters.endYear}
         </span>
       </div>

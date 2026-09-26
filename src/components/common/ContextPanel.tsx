@@ -32,25 +32,26 @@ export const ContextPanel: React.FC = () => {
     <aside
       aria-label="Contextual Node Information Panel"
       className={cn(
-        'w-80 md:w-96 shrink-0 h-full border-l border-stone-200 dark:border-stone-800 bg-[#FBFBF9] dark:bg-[#0c0e14] flex flex-col z-30 transition-all select-none overflow-y-auto'
+        'w-80 md:w-96 shrink-0 h-full border-l border-stone-200 dark:border-stone-800 bg-[#F6F4EE] dark:bg-[#0c0e14] flex flex-col z-30 transition-all select-none overflow-y-auto'
       )}
     >
       {/* Panel Header */}
-      <div className="sticky top-0 z-20 h-10 px-4 bg-[#FBFBF9]/95 dark:bg-[#0c0e14]/95 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 flex items-center justify-between text-xs font-mono">
+      <div className="sticky top-0 z-20 h-10 px-4 bg-[#FBFBF9]/95 dark:bg-[#0c0e14]/95  border-b border-stone-200 dark:border-stone-800 flex items-center justify-between text-xs font-mono">
         <span className="text-[10px] uppercase tracking-widest font-bold text-stone-500 dark:text-stone-400">
           NODE CONTEXT
         </span>
         <button
           onClick={clearActiveNode}
-          className="p-1 text-stone-500 hover:text-stone-950 dark:text-stone-400 dark:hover:text-stone-100 rounded hover:bg-stone-200/60 dark:hover:bg-stone-800 cursor-pointer"
+          className="p-1 text-stone-500 hover:text-stone-950 dark:text-stone-400 dark:hover:text-stone-100 hover:bg-stone-200/60 dark:hover:bg-stone-800 cursor-pointer"
           title="Close context panel"
         >
           <X size={14} />
         </button>
       </div>
 
-      <div className="p-4 space-y-6 flex-1">
+      <div className="p-0 flex-1 divide-y divide-stone-300 dark:divide-stone-800">
         {/* Main Entity Summary */}
+        <div className="p-4">
         <ContextEntitySummary
           entity={entity}
           type={type}
@@ -60,12 +61,15 @@ export const ContextPanel: React.FC = () => {
           updateFilter={updateFilter}
           setActiveTab={setActiveTab}
         />
+        </div>
 
         {/* Continuous Exploration — Connected Entities */}
+        <div className="p-4">
         <ContextConnectedNodes
           connected={connected}
           selectNode={selectNode}
         />
+        </div>
       </div>
     </aside>
   );

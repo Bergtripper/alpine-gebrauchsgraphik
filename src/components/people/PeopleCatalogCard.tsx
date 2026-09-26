@@ -25,12 +25,12 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
 }) => {
   if (viewMode === 'list') {
     return (
-      <div className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800 rounded-lg p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-stone-400 dark:hover:border-stone-600 transition-all shadow-xs">
+      <div className="bg-transparent border-t border-stone-300 dark:border-stone-700 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-stone-900 dark:hover:border-stone-300 transition-colors">
         <div className="flex-1 space-y-1">
           <div className="flex flex-wrap items-center gap-2">
             <h2
               onClick={() => selectAuthor(person.id)}
-              className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 hover:text-amber-600 dark:hover:text-amber-400 cursor-pointer transition-colors"
+              className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 hover:text-stone-700 dark:hover:text-stone-300 cursor-pointer transition-colors"
             >
               {person.name}
             </h2>
@@ -43,7 +43,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
             {person.nationality} · {person.professions.join(', ')} · Active: {person.activeYears} · {person.cities.join(', ')}
           </div>
           {person.identityNotes && (
-            <div className="text-[11px] font-mono text-amber-700 dark:text-amber-400 flex items-center gap-1.5 pt-0.5">
+            <div className="text-[11px] font-mono text-stone-700 dark:text-stone-300 flex items-center gap-1.5 pt-0.5">
               <AlertCircle size={12} className="shrink-0" />
               <span className="truncate">{person.identityNotes}</span>
             </div>
@@ -57,7 +57,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
               setComparison('artist', person.id, '');
               setActiveTab('compare');
             }}
-            className="px-2.5 py-1.5 rounded border border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center gap-1 cursor-pointer"
+            className="px-2.5 py-1.5 border border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center gap-1 cursor-pointer"
           >
             <Sliders size={12} />
             <span>Compare</span>
@@ -65,7 +65,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
 
           <button
             onClick={() => selectAuthor(person.id)}
-            className="px-3 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold rounded hover:bg-black dark:hover:bg-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+            className="px-3 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold hover:bg-black dark:hover:bg-white transition-colors flex items-center gap-1.5 cursor-pointer "
           >
             <span>Explore Author Universe</span>
             <ArrowRight size={13} />
@@ -76,7 +76,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
   }
 
   return (
-    <div className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800 rounded-lg p-6 flex flex-col justify-between hover:border-stone-400 dark:hover:border-stone-600 transition-all shadow-sm group">
+    <div className="bg-transparent border-t border-stone-300 dark:border-stone-700 py-5 flex flex-col justify-between hover:border-stone-900 dark:hover:border-stone-300 transition-colors group">
       <div className="space-y-4">
         {/* Header with Epistemic Research Status */}
         <div className="flex justify-between items-start gap-2">
@@ -84,7 +84,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
             <div className="flex flex-wrap items-center gap-2">
               <h2
                 onClick={() => selectAuthor(person.id)}
-                className="text-2xl font-serif font-bold text-stone-900 dark:text-stone-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 cursor-pointer transition-colors"
+                className="text-2xl font-serif font-bold text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-300 cursor-pointer transition-colors"
               >
                 {person.name}
               </h2>
@@ -94,15 +94,15 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
               {person.birthYear ?? 'unknown'}—{person.deathYear || (person.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')} · {person.nationality}
             </div>
           </div>
-          <span className="text-[11px] font-mono px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 rounded border border-stone-200 dark:border-stone-700 shrink-0">
+          <span className="text-[11px] font-mono px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 shrink-0">
             Active: {person.activeYears}
           </span>
         </div>
 
         {/* Identity Notes if uncertain/unidentified */}
         {person.identityNotes && (
-          <div className="p-2.5 rounded bg-stone-100 dark:bg-stone-900/80 border border-stone-200 dark:border-stone-800 text-[11px] font-mono text-stone-700 dark:text-stone-300 flex items-start gap-2">
-            <AlertCircle size={13} className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+          <div className="p-2.5 bg-stone-100 dark:bg-stone-900/80 border border-stone-200 dark:border-stone-800 text-[11px] font-mono text-stone-700 dark:text-stone-300 flex items-start gap-2">
+            <AlertCircle size={13} className="text-stone-700 dark:text-stone-300 shrink-0 mt-0.5" />
             <p className="leading-snug">{person.identityNotes}</p>
           </div>
         )}
@@ -171,7 +171,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
 
         <button
           onClick={() => selectAuthor(person.id)}
-          className="px-3.5 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold rounded hover:bg-black dark:hover:bg-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+          className="px-3.5 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold hover:bg-black dark:hover:bg-white transition-colors flex items-center gap-1.5 cursor-pointer "
         >
           <span>Explore Author Universe</span>
           <ArrowRight size={13} />

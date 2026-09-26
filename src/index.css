@@ -223,3 +223,87 @@ html.a11y-highlight-links button:not([aria-hidden="true"]) {
 }
 
 
+
+
+/* ==========================================================================
+   Editorial Archive System
+   Flat, rectilinear, catalogue-led surfaces. Historical objects carry colour;
+   the interface stays primarily monochrome.
+   ========================================================================== */
+
+:root {
+  --archive-paper: #f3f1ea;
+  --archive-surface: #faf9f5;
+  --archive-ink: #171714;
+  --archive-muted: #6f6b61;
+  --archive-rule: #c9c5ba;
+  --archive-accent: #1f2937;
+}
+
+html.dark {
+  --archive-paper: #0b0d10;
+  --archive-surface: #101217;
+  --archive-ink: #f3f1ea;
+  --archive-muted: #9b978d;
+  --archive-rule: #34373d;
+  --archive-accent: #e7e5df;
+}
+
+.archive-surface {
+  background: var(--archive-surface);
+  border: 1px solid var(--archive-rule);
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.archive-rule {
+  border-color: var(--archive-rule) !important;
+}
+
+.archive-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  color: var(--archive-muted);
+}
+
+.archive-index {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+.archive-action {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.archive-link {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+.archive-link:hover {
+  opacity: 0.65;
+}
+
+.archive-section-number {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--archive-muted);
+}
+
+.archive-record {
+  border-top: 1px solid var(--archive-rule);
+  border-bottom: 1px solid var(--archive-rule);
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
