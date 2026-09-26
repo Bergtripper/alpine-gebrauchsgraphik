@@ -148,7 +148,7 @@ export const CompareView: React.FC = () => {
                   <ResearchStatusBadge status={artist1.researchStatus || 'CONFIRMED'} size="xs" />
                 </div>
                 <div className="text-xs font-mono text-stone-500 dark:text-stone-400 mt-1">
-                  {artist1.birthYear}—{artist1.deathYear || (artist1.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')} · {artist1.nationality} · Active: {artist1.activeYears}
+                  {artist1.birthYear ?? 'unknown'}—{artist1.deathYear || (artist1.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')} · {artist1.nationality} · Active: {artist1.activeYears}
                 </div>
                 <button
                   onClick={() => openEntity(artist1.id, 'person')}
@@ -253,7 +253,7 @@ export const CompareView: React.FC = () => {
                   <ResearchStatusBadge status={artist2.researchStatus || 'CONFIRMED'} size="xs" />
                 </div>
                 <div className="text-xs font-mono text-stone-500 dark:text-stone-400 mt-1">
-                  {artist2.birthYear}—{artist2.deathYear || (artist2.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')} · {artist2.nationality} · Active: {artist2.activeYears}
+                  {artist2.birthYear ?? 'unknown'}—{artist2.deathYear || (artist2.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')} · {artist2.nationality} · Active: {artist2.activeYears}
                 </div>
                 <button
                   onClick={() => openEntity(artist2.id, 'person')}
