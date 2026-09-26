@@ -234,7 +234,7 @@ export interface Work {
 export interface Person {
   id: string;
   name: string;
-  birthYear: number;
+  birthYear?: number;
   deathYear?: number;
   nationality: string;
   researchStatus?: ResearchStatus;
