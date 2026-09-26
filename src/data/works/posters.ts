@@ -102,8 +102,8 @@ export const POSTERS_WORKS: Work[] = [
   {
     id: 'work-ruprich-toblach-35',
     title: 'Toblach / Dobbiaco — Dolomiti Wintersport',
-    creatorId: 'ruprich',
-    creatorName: 'Ruprich',
+    creatorId: 'gustavo-ruprich',
+    creatorName: 'Gustavo Ruprich',
     researchStatus: 'UNIDENTIFIED',
     year: 1935,
     yearDisplay: 'c. 1935',
