@@ -25,12 +25,12 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
 }) => {
   if (viewMode === 'list') {
     return (
-      <div className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800  p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-stone-400 dark:hover:border-stone-600 transition-all ">
+      <div className="bg-transparent border-t border-stone-300 dark:border-stone-700 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-stone-900 dark:hover:border-stone-300 transition-colors">
         <div className="flex-1 space-y-1">
           <div className="flex flex-wrap items-center gap-2">
             <h2
               onClick={() => selectAuthor(person.id)}
-              className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 hover:text-stone-700 dark:hover:text-amber-400 cursor-pointer transition-colors"
+              className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 hover:text-stone-700 dark:hover:text-stone-300 cursor-pointer transition-colors"
             >
               {person.name}
             </h2>
@@ -76,7 +76,7 @@ export const PeopleCatalogCard: React.FC<PeopleCatalogCardProps> = ({
   }
 
   return (
-    <div className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800  p-6 flex flex-col justify-between hover:border-stone-400 dark:hover:border-stone-600 transition-all  group">
+    <div className="bg-transparent border-t border-stone-300 dark:border-stone-700 py-5 flex flex-col justify-between hover:border-stone-900 dark:hover:border-stone-300 transition-colors group">
       <div className="space-y-4">
         {/* Header with Epistemic Research Status */}
         <div className="flex justify-between items-start gap-2">
