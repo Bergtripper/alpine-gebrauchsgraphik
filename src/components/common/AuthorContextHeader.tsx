@@ -46,14 +46,14 @@ export const AuthorContextHeader: React.FC = () => {
   return (
     <aside
       aria-label="Active Author Context"
-      className="bg-white/95 dark:bg-[#11141c]/95 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 shadow-xs z-30 transition-colors"
+      className="bg-[#F6F4EE] dark:bg-[#101217] border-b border-stone-300 dark:border-stone-800 z-30 transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
           {/* Left: Author Identity Dossier Bar */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-mono uppercase tracking-widest font-bold px-1.5 py-0.5 rounded bg-stone-900 text-white dark:bg-amber-400 dark:text-stone-950">
+              <span className="text-[10px] font-mono uppercase tracking-widest font-bold px-1.5 py-0.5 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-950">
                 AUTHOR UNIVERSE
               </span>
               <ResearchStatusBadge status={activeAuthor.researchStatus || 'CONFIRMED'} size="xs" />
@@ -64,7 +64,7 @@ export const AuthorContextHeader: React.FC = () => {
             </h2>
 
             <span className="text-xs font-mono text-stone-500 dark:text-stone-400 hidden sm:inline">
-              ({activeAuthor.birthYear}—{activeAuthor.deathYear || (activeAuthor.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')})
+              ({activeAuthor.birthYear ?? 'unknown'}—{activeAuthor.deathYear || (activeAuthor.researchStatus === 'UNIDENTIFIED' ? 'uncertain' : 'present')})
             </span>
 
             <span className="text-xs font-mono text-stone-400 dark:text-stone-600 hidden md:inline">·</span>
@@ -75,7 +75,7 @@ export const AuthorContextHeader: React.FC = () => {
 
             <span className="text-xs font-mono text-stone-400 dark:text-stone-600 hidden lg:inline">·</span>
 
-            <span className="text-xs font-mono text-amber-700 dark:text-amber-400 hidden lg:flex items-center gap-1">
+            <span className="text-xs font-mono text-stone-700 dark:text-stone-300 hidden lg:flex items-center gap-1">
               <MapPin size={11} />
               <span>{activeAuthor.nationality} · {activeAuthor.cities.slice(0, 2).join(' / ')}</span>
             </span>
@@ -87,14 +87,14 @@ export const AuthorContextHeader: React.FC = () => {
             <button
               onClick={toggleAuthorScope}
               className={cn(
-                'px-2.5 py-1 rounded border flex items-center gap-1.5 transition-colors cursor-pointer',
+                'px-2.5 py-1 border flex items-center gap-1.5 transition-colors cursor-pointer',
                 authorScopeOnly
-                  ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 border-amber-300 dark:border-amber-700 font-semibold'
+                  ? 'bg-transparent dark:bg-transparent text-stone-900 dark:text-stone-200 border-stone-400 dark:border-stone-600 font-semibold'
                   : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 border-stone-300 dark:border-stone-700 hover:text-stone-900 dark:hover:text-white'
               )}
               title={authorScopeOnly ? 'Author-scoped mode active (showing only related entities)' : 'Global view active (showing all Alpine entities)'}
             >
-              <span className={cn('w-1.5 h-1.5 rounded-full', authorScopeOnly ? 'bg-amber-500 animate-pulse' : 'bg-stone-400')} />
+              <span className={cn('w-1.5 h-1.5-full', authorScopeOnly ? 'bg-transparent0 animate-pulse' : 'bg-stone-400')} />
               <span>{authorScopeOnly ? 'Scoped' : 'All Alps'}</span>
             </button>
 
@@ -104,7 +104,7 @@ export const AuthorContextHeader: React.FC = () => {
                 setComparison('artist', activeAuthor.id, '');
                 setActiveTab('compare');
               }}
-              className="px-2.5 py-1 rounded bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 border border-stone-300 dark:border-stone-700 text-stone-800 dark:text-stone-200 transition-colors flex items-center gap-1 cursor-pointer"
               title="Compare this author with another creator in the corpus"
             >
               <Sliders size={12} className="text-stone-600 dark:text-stone-400" />
@@ -116,7 +116,7 @@ export const AuthorContextHeader: React.FC = () => {
               onClick={() => {
                 setActiveTab('explore');
               }}
-              className="px-2.5 py-1 rounded bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold hover:bg-black dark:hover:bg-white transition-colors flex items-center gap-1 cursor-pointer shadow-2xs"
+              className="px-2.5 py-1 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold hover:bg-black dark:hover:bg-white transition-colors flex items-center gap-1 cursor-pointer "
               title="Open author-centered local network"
             >
               <Share2 size={12} />
@@ -126,7 +126,7 @@ export const AuthorContextHeader: React.FC = () => {
             {/* Exit Author Mode */}
             <button
               onClick={exitAuthorMode}
-              className="px-2 py-1 rounded text-stone-500 hover:text-stone-950 dark:text-stone-400 dark:hover:text-white hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2 py-1 text-stone-500 hover:text-stone-950 dark:text-stone-400 dark:hover:text-white hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex items-center gap-1 cursor-pointer"
               title="Exit author-scoped mode and return to global People directory"
             >
               <X size={13} />
@@ -147,7 +147,7 @@ export const AuthorContextHeader: React.FC = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  'px-2 py-0.5 rounded transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1',
+                  'px-2 py-0.5 transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1',
                   isCurrent
                     ? 'bg-stone-900 dark:bg-stone-200 text-white dark:text-stone-950 font-bold'
                     : 'text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800'
@@ -157,7 +157,7 @@ export const AuthorContextHeader: React.FC = () => {
                 {tab.count !== undefined && (
                   <span
                     className={cn(
-                      'text-[9px] px-1 rounded',
+                      'text-[9px] px-1',
                       isCurrent
                         ? 'bg-stone-800 dark:bg-stone-300 text-stone-200 dark:text-stone-900'
                         : 'bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-stone-400'
