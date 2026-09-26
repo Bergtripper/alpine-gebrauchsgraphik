@@ -74,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-[#FAF9F5]/95 dark:bg-[#090b10]/95 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 transition-colors">
+    <header className="sticky top-0 z-40 bg-[#FAF9F5]/95 dark:bg-[#090b10]/95  border-b border-stone-200 dark:border-stone-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-3">
         {/* Zone 1: DOTZERO Family Dropdown & Wordmark */}
         <div className="flex items-center gap-3">
@@ -82,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
           <div className="relative" ref={projectDropdownRef}>
             <button
               onClick={() => setProjectDropdownOpen(!projectDropdownOpen)}
-              className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest font-bold px-2 py-1 rounded bg-stone-200/80 dark:bg-stone-800/80 text-stone-800 dark:text-stone-200 hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors cursor-pointer select-none"
+              className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest font-bold px-2 py-1 bg-stone-200/80 dark:bg-stone-800/80 text-stone-800 dark:text-stone-200 hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors cursor-pointer select-none"
               title="DOTZERO Research Ecosystem Projects"
             >
               <span>DOTZERO</span>
@@ -90,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
             </button>
 
             {projectDropdownOpen && (
-              <div className="absolute left-0 top-full mt-1.5 w-60 bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded shadow-xl py-1 z-50 text-xs font-mono">
+              <div className="absolute left-0 top-full mt-1.5 w-60 bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 py-1 z-50 text-xs font-mono">
                 <div className="px-3 py-1.5 text-[10px] text-stone-400 dark:text-stone-500 uppercase tracking-widest border-b border-stone-100 dark:border-stone-800">
                   DOTZERO Research Ecosystem
                 </div>
@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
                   }}
                   className={cn(
                     'w-full text-left px-3 py-2 flex items-center justify-between hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors cursor-pointer',
-                    dotzeroProject === 'alpine-graphic-atlas' && 'bg-stone-50 dark:bg-stone-800/60 font-bold text-amber-600 dark:text-amber-400'
+                    dotzeroProject === 'alpine-graphic-atlas' && 'bg-stone-50 dark:bg-stone-800/60 font-bold text-stone-900 dark:text-stone-100'
                   )}
                 >
                   <div>
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
                     <div className="text-stone-800 dark:text-stone-200">Avant-Garde Atlas</div>
                     <div className="text-[10px] text-stone-500 dark:text-stone-400">Modernist Movements · 1900—1939</div>
                   </div>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-stone-400">
+                  <span className="text-[9px] px-1.5 py-0.5 bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-stone-400">
                     Sibling
                   </span>
                 </div>
@@ -134,8 +134,8 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
             onClick={() => setActiveTab('people')}
             className="flex items-center gap-2.5 group cursor-pointer focus-visible:outline-none"
           >
-            <div className="w-8 h-8 relative flex items-center justify-center bg-stone-900 dark:bg-amber-400 rounded-sm transform group-hover:rotate-45 transition-transform duration-500">
-              <svg viewBox="0 0 24 24" className="w-5 h-5 text-white dark:text-stone-950 transform group-hover:-rotate-45 transition-transform duration-500">
+            <div className="w-8 h-8 relative flex items-center justify-center bg-stone-900 dark:bg-stone-100-sm transform transition-colors duration-200">
+              <svg viewBox="0 0 24 24" className="w-5 h-5 text-white dark:text-stone-950 transition-colors duration-200">
                 <path d="M3 18 L9 6 L12 12 L16 4 L21 18 Z" fill="currentColor" />
               </svg>
             </div>
@@ -166,13 +166,13 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
                     <span>{item.label}</span>
                     <ChevronDown size={11} className={cn('transition-transform', mapDropdownOpen && 'rotate-180')} />
                     {activeTab === 'map' && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-stone-900 dark:bg-amber-400" />
+                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-stone-900 dark:bg-stone-100" />
                     )}
                   </button>
 
                   {/* MAP Geographic Scales Dropdown */}
                   {mapDropdownOpen && (
-                    <div className="absolute left-0 top-full mt-2 w-48 bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded shadow-xl py-1 z-50 text-xs font-mono">
+                    <div className="absolute left-0 top-full mt-2 w-48 bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 py-1 z-50 text-xs font-mono">
                       <div className="px-3 py-1.5 text-[10px] text-stone-400 dark:text-stone-500 uppercase tracking-widest border-b border-stone-100 dark:border-stone-800">
                         Geographic Scale
                       </div>
@@ -192,7 +192,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
                           }}
                           className={cn(
                             'w-full text-left px-3 py-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center justify-between',
-                            activeTab === 'map' && activeMapScale === m.scale && 'font-bold text-amber-600 dark:text-amber-400 bg-stone-50 dark:bg-stone-800/40'
+                            activeTab === 'map' && activeMapScale === m.scale && 'font-bold text-stone-900 dark:text-stone-100 bg-stone-50 dark:bg-stone-800/40'
                           )}
                         >
                           <span>{m.label}</span>
@@ -218,7 +218,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
               >
                 {item.label}
                 {activeTab === item.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-stone-900 dark:bg-amber-400" />
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-stone-900 dark:bg-stone-100" />
                 )}
               </button>
             );
@@ -230,7 +230,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
           {activeFilterCount > 0 && (
             <button
               onClick={resetFilters}
-              className="hidden sm:flex items-center gap-1 px-2 py-1 text-xs font-mono text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white border border-stone-300 dark:border-stone-700 rounded hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+              className="hidden sm:flex items-center gap-1 px-2 py-1 text-xs font-mono text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
               title="Reset all active filters"
             >
               <RotateCcw size={11} />
@@ -241,15 +241,15 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
           {/* Theme Inverter (Light / Dark) */}
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-mono border transition-all cursor-pointer bg-white dark:bg-stone-900 border-stone-300 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500 shadow-2xs group"
+            className="flex items-center gap-1.5 px-2.5 py-1.5-md text-xs font-mono border transition-all cursor-pointer bg-white dark:bg-stone-900 border-stone-300 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500 group"
             title={theme === 'dark' ? 'Passa al Tema Chiaro (Carta d\'Archivio)' : 'Passa al Tema Scuro (Ossidiana)'}
             aria-label="Inverti tema globale chiaro e scuro"
           >
             <div className="relative w-3.5 h-3.5 flex items-center justify-center">
               {theme === 'dark' ? (
-                <Sun size={13} className="text-amber-400 animate-spin-slow" />
+                <Sun size={13} className="text-amber-400 " />
               ) : (
-                <Moon size={13} className="text-indigo-600" />
+                <Moon size={13} className="text-stone-700" />
               )}
             </div>
             <span className="hidden md:inline font-semibold text-[10px] tracking-wider text-stone-700 dark:text-stone-300">
@@ -261,7 +261,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
           <button
             onClick={onToggleFilterBar}
             className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded transition-colors border cursor-pointer',
+              'flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono transition-colors border cursor-pointer',
               isFilterBarOpen || activeFilterCount > 0
                 ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 border-stone-900 dark:border-white font-bold'
                 : 'bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800'
@@ -270,7 +270,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
             <SlidersHorizontal size={13} />
             <span>Filters</span>
             {activeFilterCount > 0 && (
-              <span className="ml-1 w-4 h-4 rounded-full bg-amber-500 text-stone-950 text-[10px] font-bold flex items-center justify-center">
+              <span className="ml-1 w-4 h-4-full bg-stone-200 text-stone-950 text-[10px] font-bold flex items-center justify-center">
                 {activeFilterCount}
               </span>
             )}
@@ -279,7 +279,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
           {/* Mobile menu toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-700 rounded hover:bg-stone-100 dark:hover:bg-stone-800"
+            className="lg:hidden p-1.5 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -299,7 +299,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
                   setMobileMenuOpen(false);
                 }}
                 className={cn(
-                  'px-3 py-2 rounded text-left transition-colors',
+                  'px-3 py-2 text-left transition-colors',
                   activeTab === item.id
                     ? 'bg-stone-900 dark:bg-white text-white dark:text-stone-900 font-bold'
                     : 'text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800'
@@ -312,7 +312,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
 
           {/* Map sub-scales if in Map */}
           {activeTab === 'map' && (
-            <div className="p-2.5 rounded bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5">
+            <div className="p-2.5 bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5">
               <div className="text-[10px] text-stone-500 dark:text-stone-400 font-bold">SCALA DELLA MAPPA:</div>
               <div className="flex gap-1.5">
                 {(['alps', 'regions', 'cities'] as MapScale[]).map((scale) => (
@@ -323,7 +323,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
                       setMobileMenuOpen(false);
                     }}
                     className={cn(
-                      'px-2 py-1 text-[10px] rounded border',
+                      'px-2 py-1 text-[10px] border',
                       activeMapScale === scale
                         ? 'bg-amber-400 text-stone-950 font-bold border-amber-500'
                         : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-300 dark:border-stone-700'
@@ -340,7 +340,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
             <span className="text-stone-500 dark:text-stone-400">Modalità Visiva</span>
             <button
               onClick={toggleTheme}
-              className="flex items-center gap-2 px-3 py-1.5 rounded border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 font-semibold"
+              className="flex items-center gap-2 px-3 py-1.5 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 font-semibold"
             >
               {theme === 'dark' ? (
                 <>
