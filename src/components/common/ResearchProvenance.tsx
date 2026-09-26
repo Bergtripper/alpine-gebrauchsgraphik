@@ -26,16 +26,16 @@ export const ResearchProvenance: React.FC<ResearchProvenanceProps> = ({
   );
 
   return (
-    <section className="border border-stone-200 dark:border-stone-800 rounded bg-stone-50 dark:bg-stone-900/60 overflow-hidden">
+    <section className="border border-stone-200 dark:border-stone-800 bg-transparent dark:bg-stone-900/60 ">
       <div className="flex items-center justify-between gap-3 px-3 py-2 border-b border-stone-200 dark:border-stone-800">
         <div className="flex items-center gap-2">
-          <ShieldCheck size={13} className="text-emerald-700 dark:text-emerald-400" />
+          <ShieldCheck size={13} className="text-stone-700 dark:text-stone-300" />
           <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-700 dark:text-stone-200">
             Research Provenance
           </span>
         </div>
         <span className="text-[9px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-          Source-backed record
+          SOURCE-BACKED
         </span>
       </div>
 
@@ -105,7 +105,7 @@ export const ResearchProvenance: React.FC<ResearchProvenanceProps> = ({
               image.usageStatus === 'REUSABLE'
                 ? 'text-emerald-700 dark:text-emerald-400'
                 : image.usageStatus === 'PERMISSION_REQUIRED'
-                  ? 'text-amber-700 dark:text-amber-400'
+                  ? 'text-stone-700 dark:text-stone-300'
                   : 'text-stone-700 dark:text-stone-300'
             }`}>
               {image.usageStatus.replaceAll('_', ' ')}
@@ -129,7 +129,7 @@ export const ResearchProvenance: React.FC<ResearchProvenanceProps> = ({
             href={image?.cataloguePageUrl || work.source.url}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-stone-900 dark:text-amber-400 hover:underline"
+            className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 hover:underline"
           >
             Open institutional catalogue
             <ExternalLink size={11} />
