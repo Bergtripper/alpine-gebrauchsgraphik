@@ -45,7 +45,7 @@ export const WorksView: React.FC = () => {
               Visual Artefacts of the Alps
             </h1>
             <p className="text-sm font-serif text-stone-600 dark:text-stone-400 max-w-2xl mt-1.5 leading-relaxed">
-              Every applied graphic artifact in the atlas is indexed with its historical technique, client, typography archetype, and extracted chromatic palette.
+              Historical object records are progressively migrated to source-backed metadata. Visual DNA remains a separate analytical layer.
             </p>
           </div>
 
@@ -167,9 +167,16 @@ export const WorksView: React.FC = () => {
                 <ArtworkVisualizer work={work} size="md" showPalette={true} interactiveZoom={true} />
 
                 <div className="mt-3 space-y-1">
-                  <div className="flex items-center justify-between text-[11px] font-mono text-stone-500 dark:text-stone-400">
-                    <span className="uppercase tracking-wider">{work.category}</span>
-                    <span className="font-semibold text-stone-800 dark:text-stone-200">
+                  <div className="flex items-center justify-between gap-2 text-[11px] font-mono text-stone-500 dark:text-stone-400">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="uppercase tracking-wider">{work.category}</span>
+                      {(work.attribution || work.date || work.images?.length) && (
+                        <span className="px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 text-[9px] font-bold uppercase tracking-wider">
+                          Source-backed
+                        </span>
+                      )}
+                    </div>
+                    <span className="font-semibold text-stone-800 dark:text-stone-200 shrink-0">
                       {work.yearDisplay} {work.isDateUncertain && '*'}
                     </span>
                   </div>
