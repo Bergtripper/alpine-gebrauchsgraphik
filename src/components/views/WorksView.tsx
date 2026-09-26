@@ -51,7 +51,7 @@ export const WorksView: React.FC = () => {
 
           {/* View toggle and sort */}
           <div className="flex items-center gap-3 text-xs font-mono">
-            <div className="flex items-center gap-1.5 border border-stone-300 dark:border-stone-700 rounded p-1 bg-white dark:bg-stone-900">
+            <div className="flex items-center gap-1.5 border border-stone-300 dark:border-stone-700 p-1 bg-white dark:bg-stone-900">
               <span className="text-stone-400 dark:text-stone-500 pl-1">Sort:</span>
               <select
                 value={sortBy}
@@ -64,12 +64,12 @@ export const WorksView: React.FC = () => {
               </select>
             </div>
 
-            <div className="flex border border-stone-300 dark:border-stone-700 rounded overflow-hidden">
+            <div className="flex border border-stone-300 dark:border-stone-700 overflow-hidden">
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-1.5 cursor-pointer ${
                   viewMode === 'grid'
-                    ? 'bg-stone-900 dark:bg-amber-400 text-white dark:text-stone-950 font-bold'
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold'
                     : 'bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'
                 }`}
                 title="Grid layout"
@@ -80,7 +80,7 @@ export const WorksView: React.FC = () => {
                 onClick={() => setViewMode('table')}
                 className={`p-1.5 cursor-pointer ${
                   viewMode === 'table'
-                    ? 'bg-stone-900 dark:bg-amber-400 text-white dark:text-stone-950 font-bold'
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold'
                     : 'bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'
                 }`}
                 title="Table catalogue layout"
@@ -102,9 +102,9 @@ export const WorksView: React.FC = () => {
               <button
                 key={cat.id}
                 onClick={() => updateFilter('category', cat.id)}
-                className={`px-2.5 py-1 text-xs font-mono uppercase tracking-wider rounded border transition-colors cursor-pointer ${
+                className={`px-2.5 py-1 text-xs font-mono uppercase tracking-wider border transition-colors cursor-pointer ${
                   isActive
-                    ? 'bg-stone-900 dark:bg-amber-400 text-white dark:text-stone-950 border-stone-900 dark:border-amber-400 font-bold shadow-xs'
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 border-stone-900 dark:border-amber-400 font-bold '
                     : 'bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800'
                 }`}
               >
@@ -117,9 +117,9 @@ export const WorksView: React.FC = () => {
 
       {/* Author Universe Scoped Banner */}
       {activeAuthor && authorScopeOnly && (
-        <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-xs font-mono text-amber-900 dark:text-amber-300 flex flex-wrap items-center justify-between gap-3 shadow-2xs">
+        <div className="p-3  bg-transparent dark:bg-transparent border border-stone-300 dark:border-stone-700 text-xs font-mono text-stone-900 dark:text-stone-200 flex flex-wrap items-center justify-between gap-3 ">
           <div className="flex items-center gap-2">
-            <span className="font-bold uppercase tracking-wider text-[10px] px-1.5 py-0.5 rounded bg-amber-600 text-white">
+            <span className="font-bold uppercase tracking-wider text-[10px] px-1.5 py-0.5 bg-stone-900 text-white">
               AUTHOR SCOPED
             </span>
             <span>
@@ -129,13 +129,13 @@ export const WorksView: React.FC = () => {
           <div className="flex items-center gap-2 text-[11px]">
             <button
               onClick={toggleAuthorScope}
-              className="px-2.5 py-1 bg-white dark:bg-stone-900 border border-amber-300 dark:border-amber-700 rounded hover:bg-amber-100 dark:hover:bg-amber-900 transition-colors cursor-pointer"
+              className="px-2.5 py-1 bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors cursor-pointer"
             >
               View All Alpine Works ({filters.category !== 'all' ? 'Filtered' : 'Global'})
             </button>
             <button
               onClick={() => setActiveTab('people')}
-              className="hover:underline text-amber-800 dark:text-amber-200 cursor-pointer"
+              className="hover:underline text-stone-700 dark:text-stone-300 cursor-pointer"
             >
               Author Universe →
             </button>
@@ -144,11 +144,11 @@ export const WorksView: React.FC = () => {
       )}
 
       {activeAuthor && !authorScopeOnly && (
-        <div className="p-2.5 rounded-lg bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-xs font-mono text-stone-700 dark:text-stone-300 flex items-center justify-between gap-3">
+        <div className="p-2.5-lg bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-xs font-mono text-stone-700 dark:text-stone-300 flex items-center justify-between gap-3">
           <span>Viewing entire global catalogue ({sortedWorks.length} works).</span>
           <button
             onClick={toggleAuthorScope}
-            className="px-2.5 py-1 rounded bg-amber-600 text-white font-semibold hover:bg-amber-700 transition-colors cursor-pointer"
+            className="px-2.5 py-1 bg-stone-900 text-white font-semibold hover:bg-black transition-colors cursor-pointer"
           >
             Re-scope to {activeAuthor.name}
           </button>
@@ -161,7 +161,7 @@ export const WorksView: React.FC = () => {
           {sortedWorks.map((work) => (
             <div
               key={work.id}
-              className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800 rounded-lg p-3.5 hover:border-stone-400 dark:hover:border-stone-600 transition-all flex flex-col justify-between group shadow-xs"
+              className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800-lg p-3.5 hover:border-stone-400 dark:hover:border-stone-600 transition-all flex flex-col justify-between group "
             >
               <div>
                 <ArtworkVisualizer work={work} size="md" showPalette={true} interactiveZoom={true} />
@@ -171,7 +171,7 @@ export const WorksView: React.FC = () => {
                     <div className="flex items-center gap-2 min-w-0">
                       <span className="uppercase tracking-wider">{work.category}</span>
                       {(work.attribution || work.date || work.images?.length) && (
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 text-[9px] font-bold uppercase tracking-wider">
+                        <span className="px-1.5 py-0.5 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 text-[9px] font-bold uppercase tracking-wider">
                           Source-backed
                         </span>
                       )}
@@ -211,7 +211,7 @@ export const WorksView: React.FC = () => {
                 <span className="truncate max-w-[150px]">{work.technique}</span>
                 <button
                   onClick={() => openEntity(work.id, 'work')}
-                  className="text-stone-900 dark:text-amber-400 font-semibold hover:underline cursor-pointer"
+                  className="text-stone-900 dark:text-stone-100 font-semibold hover:underline cursor-pointer"
                 >
                   Dossier ↗
                 </button>
@@ -223,7 +223,7 @@ export const WorksView: React.FC = () => {
 
       {/* Table Mode */}
       {viewMode === 'table' && (
-        <div className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800 rounded-lg overflow-x-auto shadow-xs">
+        <div className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800-lg overflow-x-auto ">
           <table className="w-full text-left text-xs font-mono">
             <thead className="bg-stone-100 dark:bg-stone-900 text-stone-600 dark:text-stone-400 border-b border-stone-200 dark:border-stone-800 uppercase tracking-wider text-[10px]">
               <tr>
@@ -241,7 +241,7 @@ export const WorksView: React.FC = () => {
               {sortedWorks.map((w) => (
                 <tr key={w.id} className="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
                   <td className="py-2 px-4 w-14">
-                    <div className="w-10 h-14 bg-stone-200 dark:bg-stone-800 rounded overflow-hidden">
+                    <div className="w-10 h-14 bg-stone-200 dark:bg-stone-800 overflow-hidden">
                       <ArtworkVisualizer work={w} size="sm" showPalette={false} interactiveZoom={false} />
                     </div>
                   </td>
@@ -277,14 +277,14 @@ export const WorksView: React.FC = () => {
                   </td>
                   <td className="py-3 px-4 text-stone-600 dark:text-stone-400">{w.technique}</td>
                   <td className="py-3 px-4">
-                    <span className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 rounded text-[10px]">
+                    <span className="px-2 py-0.5 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-[10px]">
                       {w.category}
                     </span>
                   </td>
                   <td className="py-3 px-4 text-right">
                     <button
                       onClick={() => openEntity(w.id, 'work')}
-                      className="text-stone-900 dark:text-amber-400 font-bold hover:underline cursor-pointer"
+                      className="text-stone-900 dark:text-stone-100 font-bold hover:underline cursor-pointer"
                     >
                       Inspect ↗
                     </button>
