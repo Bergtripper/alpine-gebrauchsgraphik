@@ -104,7 +104,7 @@ export const WorksView: React.FC = () => {
                 onClick={() => updateFilter('category', cat.id)}
                 className={`px-2.5 py-1 text-xs font-mono uppercase tracking-wider border transition-colors cursor-pointer ${
                   isActive
-                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 border-stone-900 dark:border-amber-400 font-bold '
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 border-stone-900 dark:border-stone-100 font-bold '
                     : 'bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800'
                 }`}
               >
@@ -144,7 +144,7 @@ export const WorksView: React.FC = () => {
       )}
 
       {activeAuthor && !authorScopeOnly && (
-        <div className="p-2.5-lg bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-xs font-mono text-stone-700 dark:text-stone-300 flex items-center justify-between gap-3">
+        <div className="p-2.5 bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-xs font-mono text-stone-700 dark:text-stone-300 flex items-center justify-between gap-3">
           <span>Viewing entire global catalogue ({sortedWorks.length} works).</span>
           <button
             onClick={toggleAuthorScope}
@@ -161,7 +161,7 @@ export const WorksView: React.FC = () => {
           {sortedWorks.map((work) => (
             <div
               key={work.id}
-              className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800-lg p-3.5 hover:border-stone-400 dark:hover:border-stone-600 transition-all flex flex-col justify-between group "
+              className="bg-transparent border-t border-stone-300 dark:border-stone-700 pt-3.5 hover:border-stone-900 dark:hover:border-stone-300 transition-colors flex flex-col justify-between group"
             >
               <div>
                 <ArtworkVisualizer work={work} size="md" showPalette={true} interactiveZoom={true} />
@@ -223,7 +223,7 @@ export const WorksView: React.FC = () => {
 
       {/* Table Mode */}
       {viewMode === 'table' && (
-        <div className="bg-white dark:bg-[#12161f] border border-stone-200 dark:border-stone-800-lg overflow-x-auto ">
+        <div className="bg-transparent border-y border-stone-300 dark:border-stone-700 overflow-x-auto">
           <table className="w-full text-left text-xs font-mono">
             <thead className="bg-stone-100 dark:bg-stone-900 text-stone-600 dark:text-stone-400 border-b border-stone-200 dark:border-stone-800 uppercase tracking-wider text-[10px]">
               <tr>
