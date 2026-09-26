@@ -92,7 +92,7 @@ export const TimelineView: React.FC = () => {
       {activeAuthor && (
         <div className="p-3 bg-transparent dark:bg-transparent border border-amber-200 dark:border-amber-800  text-xs font-mono flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-amber-900 dark:text-amber-200">
-            <span className="w-2 h-2 -full bg-transparent0 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-stone-900 dark:bg-stone-100 animate-pulse" />
             <span>
               Author-Scoped Timeline: <strong>{activeAuthor.name}</strong> ({activeAuthor.activeYears})
             </span>
@@ -133,7 +133,7 @@ export const TimelineView: React.FC = () => {
         {/* Lane 1: Historical Milestones & Tourism Developments */}
         <div className="space-y-2">
           <div className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 -full bg-transparent0 inline-block " />
+            <span className="w-2 h-2 rounded-full bg-stone-900 dark:bg-stone-100 inline-block " />
             <span>Tourism & Infrastructure Milestones</span>
           </div>
 
@@ -146,7 +146,7 @@ export const TimelineView: React.FC = () => {
                   className="absolute top-2 -translate-x-1/2 group cursor-pointer"
                   style={{ left: `${leftPercent}%` }}
                 >
-                  <div className="w-3.5 h-3.5 -full bg-transparent0 border-2 border-white dark:border-stone-900  flex items-center justify-center group-hover:scale-130 transition-transform" />
+                  <div className="w-3.5 h-3.5 rounded-full bg-stone-900 dark:bg-stone-100 border-2 border-white dark:border-stone-900  flex items-center justify-center group-hover:scale-130 transition-transform" />
                   <div className="hidden group-hover:block absolute bottom-6 left-1/2 -translate-x-1/2 w-64 bg-stone-900 text-white text-xs font-mono p-3 shadow-xl z-30 pointer-events-none border border-stone-700">
                     <div className="text-amber-400 font-bold mb-1">
                       {m.year} · {m.category}
@@ -168,7 +168,7 @@ export const TimelineView: React.FC = () => {
         {/* Lane 2: Creators' Lifespans & Active Eras */}
         <div className="space-y-2">
           <div className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 -full bg-stone-900 dark:bg-stone-200 inline-block" />
+            <span className="w-2 h-2 rounded-full bg-stone-900 dark:bg-stone-200 inline-block" />
             <span>Designers & Illustrators Active Spans</span>
           </div>
 
@@ -208,7 +208,7 @@ export const TimelineView: React.FC = () => {
         {/* Lane 3: Catalogued Works */}
         <div className="space-y-2">
           <div className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 -full bg-blue-500 inline-block" />
+            <span className="w-2 h-2 rounded-full bg-blue-500 inline-block" />
             <span>Catalogued Works Produced ({worksInScope.length})</span>
           </div>
 
@@ -246,7 +246,7 @@ export const TimelineView: React.FC = () => {
         {/* Lane 4: Periodicals & Publications */}
         <div className="space-y-2">
           <div className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 -full bg-purple-500 inline-block" />
+            <span className="w-2 h-2 rounded-full bg-purple-500 inline-block" />
             <span>Magazines & Trade Catalogues</span>
           </div>
 
