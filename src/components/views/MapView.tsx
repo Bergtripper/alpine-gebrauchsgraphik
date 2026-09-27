@@ -114,7 +114,7 @@ export const MapView: React.FC = () => {
           {/* Author Universe Scoped Geographic Banner */}
           {activeAuthor && (
             <div className="bg-[#F6F4EE]/95 dark:bg-[#101217]/95  border border-stone-400 dark:border-stone-600  px-3 py-1.5 flex items-center gap-2 text-xs font-mono text-stone-900 dark:text-stone-200">
-              <span className="font-bold text-[10px] uppercase bg-amber-600 text-white px-1.5 py-0.5 ">
+              <span className="font-bold text-[10px] uppercase bg-[#9E3E2F] text-white px-1.5 py-0.5 ">
                 AUTHOR GEO
               </span>
               <span>
@@ -133,7 +133,7 @@ export const MapView: React.FC = () => {
                 className={cn(
                   'px-1.5 py-0.5 text-[9px] uppercase font-mono transition-colors cursor-pointer',
                   filterRouteType === mode
-                    ? 'bg-stone-900 text-stone-950 font-bold'
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 font-bold'
                     : 'text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white'
                 )}
               >
@@ -149,45 +149,32 @@ export const MapView: React.FC = () => {
           className="w-full h-full object-cover select-none bg-[#F7F5EE] dark:bg-[#0B0E14] transition-colors"
         >
           <defs>
-            <linearGradient id="topo-alps-light" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ebe7df" />
-              <stop offset="50%" stopColor="#dfd9cc" />
-              <stop offset="100%" stopColor="#ede9e1" />
-            </linearGradient>
-
-            <linearGradient id="topo-alps-dark" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#131922" />
-              <stop offset="50%" stopColor="#1E2633" />
-              <stop offset="100%" stopColor="#0F141C" />
-            </linearGradient>
-
-            <filter id="pin-glow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
+            <pattern id="survey-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke={isDark ? '#20242C' : '#D8D4CA'} strokeWidth="0.7" />
+            </pattern>
           </defs>
 
-          {/* Coordinate Grid Lines */}
-          <g stroke={isDark ? '#161E2B' : '#E2DED4'} strokeWidth="1" strokeDasharray="4 4">
-            <line x1="100" y1="0" x2="100" y2="650" />
-            <line x1="300" y1="0" x2="300" y2="650" />
-            <line x1="500" y1="0" x2="500" y2="650" />
-            <line x1="700" y1="0" x2="700" y2="650" />
-            <line x1="900" y1="0" x2="900" y2="650" />
-            <line x1="0" y1="150" x2="1000" y2="150" />
-            <line x1="0" y1="350" x2="1000" y2="350" />
-            <line x1="0" y1="550" x2="1000" y2="550" />
-          </g>
+          {/* Geodetic survey grid */}
+          <rect width="1000" height="650" fill="url(#survey-grid)" />
 
-          {/* Topographic Alpine Massif Ridges */}
-          <path
-            d="M 120,240 Q 220,180 340,210 T 520,280 T 680,240 T 890,180 L 920,440 Q 720,480 500,430 T 260,490 Z"
-            fill={isDark ? 'url(#topo-alps-dark)' : 'url(#topo-alps-light)'}
-            opacity="0.9"
+          {/* Faceted Alpine field: geometric rather than topographic decoration */}
+          <polygon
+            points="80,455 150,360 225,405 315,285 390,350 470,235 545,330 620,260 710,345 805,205 920,335 960,455"
+            fill={isDark ? '#171B22' : '#E8E3D8'}
           />
+          <polyline
+            points="80,455 150,360 225,405 315,285 390,350 470,235 545,330 620,260 710,345 805,205 920,335 960,455"
+            fill="none"
+            stroke={isDark ? '#ECE9E0' : '#252522'}
+            strokeWidth="2"
+          />
+          <polygon
+            points="470,235 545,330 620,260 570,390"
+            fill={isDark ? '#773329' : '#9E3E2F'}
+            opacity="0.88"
+          />
+          <line x1="470" y1="235" x2="470" y2="520" stroke={isDark ? '#76716A' : '#8C877D'} strokeWidth="1" strokeDasharray="4 5" />
+          <text x="482" y="248" fill={isDark ? '#D8D3C9' : '#514D46'} fontSize="9" fontFamily="var(--font-mono)">SECTION A / 3343 M</text>
 
           {/* Alpine Mountain Peaks */}
           <g className="peaks">
@@ -199,7 +186,7 @@ export const MapView: React.FC = () => {
               { name: 'Matterhorn / Cervino', alt: '4,478 m', x: 140, y: 380 },
             ].map((peak, idx) => (
               <g key={idx} transform={`translate(${peak.x}, ${peak.y})`} className="opacity-80 pointer-events-none select-none">
-                <polygon points="0,-10 -7,4 7,4" fill={isDark ? '#F59E0B' : '#B45309'} />
+                <polygon points="0,-10 -7,4 7,4" fill={isDark ? '#C26452' : '#9E3E2F'} />
                 <polygon points="0,-10 -3,-4 0,0 3,-4" fill="#FFFFFF" />
                 <text
                   x="0"
@@ -271,7 +258,7 @@ export const MapView: React.FC = () => {
                     strokeWidth={isCorridorActive ? 2.5 : 1.5}
                     strokeDasharray={isCorridorActive ? '6 4' : '4 4'}
                     opacity={isCorridorActive ? 1 : 0.45}
-                    filter={isCorridorActive && isDark ? 'url(#pin-glow)' : undefined}
+                    
                   />
                 </g>
               );
@@ -304,17 +291,17 @@ export const MapView: React.FC = () => {
                       stroke={isDark ? '#F59E0B' : '#0F172A'}
                       strokeWidth="2"
                       strokeDasharray="4 2"
-                      className="animate-spin-slow"
+                      
                     />
                   )}
 
                   {/* Outer circle with glow */}
                   <circle
                     r={isSelected ? '14' : cluster ? '12' : '9'}
-                    fill={isSelected ? (isDark ? '#F59E0B' : '#0F172A') : isDark ? '#D97706' : '#EA580C'}
+                    fill={isSelected ? (isDark ? '#F3F1EA' : '#171714') : (isDark ? '#C26452' : '#9E3E2F')}
                     stroke={isDark ? '#0F172A' : '#FFFFFF'}
                     strokeWidth="2.5"
-                    filter={isSelected && isDark ? 'url(#pin-glow)' : undefined}
+                    
                     className="transition-transform duration-200 group-hover:scale-125"
                   />
 
