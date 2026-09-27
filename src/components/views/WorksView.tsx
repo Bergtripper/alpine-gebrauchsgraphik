@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAtlas } from '../../context/AtlasContext';
 import { ArtworkVisualizer } from '../common/ArtworkVisualizer';
 import { LayoutGrid, List } from 'lucide-react';
+import { AlpineSurveyMotif } from '../common/AlpineSurveyMotif';
 
 export const WorksView: React.FC = () => {
   const {
@@ -35,13 +36,16 @@ export const WorksView: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
       {/* Editorial Title & Controls Bar */}
-      <div className="border-b border-stone-200 dark:border-stone-800 pb-5 transition-colors">
-        <div className="text-xs uppercase font-mono tracking-widest text-stone-500 dark:text-stone-400 mb-1">
-          WORKS CATALOGUE RAISONNÉ · POSTERS · HOTEL LABELS · EPHEMERA
+      <div className="relative border-b border-stone-300 dark:border-stone-700 pb-5 transition-colors survey-cut">
+        <div className="absolute right-0 top-0 w-56 hidden lg:block opacity-60">
+          <AlpineSurveyMotif variant="section" />
+        </div>
+        <div className="survey-coordinate text-stone-500 dark:text-stone-400 mb-2 pt-3">
+          SURVEY 02 / WORKS · POSTERS · HOTEL LABELS · EPHEMERA
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-serif text-stone-900 dark:text-stone-50 tracking-tight">
+            <h1 className="survey-title text-3xl sm:text-5xl text-stone-900 dark:text-stone-50">
               Visual Artefacts of the Alps
             </h1>
             <p className="text-sm font-serif text-stone-600 dark:text-stone-400 max-w-2xl mt-1.5 leading-relaxed">
@@ -172,7 +176,7 @@ export const WorksView: React.FC = () => {
                       <span className="uppercase tracking-wider">{work.category}</span>
                       {(work.attribution || work.date || work.images?.length) && (
                         <span className="px-1.5 py-0.5 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 text-[9px] font-bold uppercase tracking-wider">
-                          Source-backed
+                          VERIFIED SOURCE
                         </span>
                       )}
                     </div>
@@ -183,7 +187,7 @@ export const WorksView: React.FC = () => {
 
                   <h3
                     onClick={() => openEntity(work.id, 'work')}
-                    className="text-base font-serif font-bold text-stone-950 dark:text-stone-100 group-hover:text-stone-700 dark:group-hover:text-amber-400 cursor-pointer leading-snug line-clamp-2 transition-colors"
+                    className="text-base font-serif font-bold text-stone-950 dark:text-stone-100 group-hover:text-stone-700 dark:group-hover:text-stone-300 cursor-pointer leading-snug line-clamp-2 transition-colors"
                   >
                     {work.title}
                   </h3>
