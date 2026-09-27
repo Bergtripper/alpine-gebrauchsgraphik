@@ -108,13 +108,6 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   text-transform: uppercase;
 }
 
-.bg-topo-light {
-  background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 800C150 720 300 750 450 680C600 610 700 650 800 580M0 720C180 640 350 670 520 590C690 510 750 550 800 480M0 640C220 560 400 590 580 510C760 430 780 470 800 380M0 560C260 480 450 510 640 430C830 350 820 390 800 280M0 480C300 400 500 430 700 350C900 270 850 310 800 180M0 400C350 320 550 350 750 270C950 190 880 230 800 80' stroke='%23e7e5e4' fill='none' stroke-width='0.5' opacity='0.4'/%3E%3C/svg%3E");
-}
-
-.bg-topo-dark {
-  background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 800C150 720 300 750 450 680C600 610 700 650 800 580M0 720C180 640 350 670 520 590C690 510 750 550 800 480M0 640C220 560 400 590 580 510C760 430 780 470 800 380M0 560C260 480 450 510 640 430C830 350 820 390 800 280M0 480C300 400 500 430 700 350C900 270 850 310 800 180M0 400C350 320 550 350 750 270C950 190 880 230 800 80' stroke='%231c1917' fill='none' stroke-width='0.5' opacity='0.4'/%3E%3C/svg%3E");
-}
 
 .alpine-shadow {
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
@@ -305,5 +298,60 @@ html.dark {
   border-right: 0;
   border-radius: 0 !important;
   box-shadow: none !important;
+}
+
+
+
+/* Constructivist Alpine Survey ------------------------------------------------ */
+.survey-grid {
+  background-image:
+    linear-gradient(to right, rgba(23, 23, 20, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 23, 20, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+html.dark .survey-grid {
+  background-image:
+    linear-gradient(to right, rgba(243, 241, 234, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(243, 241, 234, 0.04) 1px, transparent 1px);
+}
+
+.survey-cut {
+  position: relative;
+}
+.survey-cut::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7rem;
+  height: 0.28rem;
+  background: #171714;
+  transform: skewX(-32deg);
+  transform-origin: left center;
+}
+html.dark .survey-cut::before {
+  background: #f3f1ea;
+}
+
+.survey-accent {
+  color: #9E3E2F;
+}
+html.dark .survey-accent {
+  color: #C26452;
+}
+
+.survey-coordinate {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.survey-title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
 }
 

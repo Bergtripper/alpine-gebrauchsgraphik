@@ -47,7 +47,7 @@ const AtlasApp: React.FC = () => {
   }, [toggleTheme]);
 
   return (
-    <div className="h-screen w-screen bg-[#F8F7F3] dark:bg-[#0b0d11] text-[#1a1a18] dark:text-[#f3f4f6] flex flex-col font-sans transition-colors duration-300 overflow-hidden bg-topo-light dark:bg-topo-dark">
+    <div className="h-screen w-screen bg-[#F8F7F3] dark:bg-[#0b0d11] text-[#1a1a18] dark:text-[#f3f4f6] flex flex-col font-sans transition-colors duration-300 overflow-hidden">
       {/* 1. Global Navigation Bar with DOTZERO Family & MAP Submenu */}
       <Header
         onToggleFilterBar={() => setIsFilterBarOpen(!isFilterBarOpen)}
@@ -102,8 +102,8 @@ const AtlasApp: React.FC = () => {
       {/* Toast Notification on Theme Switch */}
       {showThemeToast && (
         <div className="fixed top-18 right-6 z-50 animate-fade-in pointer-events-none select-none">
-          <div className="px-4 py-2 rounded shadow-xl border text-xs font-mono flex items-center gap-2 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-950 border-stone-700 dark:border-stone-300">
-            <Sparkles size={14} className="text-amber-400 dark:text-amber-600" />
+          <div className="px-4 py-2 border border text-xs font-mono flex items-center gap-2 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-950 border-stone-700 dark:border-stone-300">
+            <Sparkles size={14} className="text-stone-300 dark:text-stone-700" />
             <span>
               {theme === 'dark' ? 'Tema Scuro Attivo (Obsidian Night)' : 'Tema Chiaro Attivo (Archival Paper)'}
             </span>
