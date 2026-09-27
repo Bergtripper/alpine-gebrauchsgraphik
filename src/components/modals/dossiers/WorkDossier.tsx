@@ -3,6 +3,7 @@ import { Work } from '../../../types/atlas';
 import { ArtworkVisualizer } from '../../common/ArtworkVisualizer';
 import { ResearchProvenance } from '../../common/ResearchProvenance';
 import { Sliders } from 'lucide-react';
+import { AlpineSurveyMotif } from '../../common/AlpineSurveyMotif';
 
 interface WorkDossierProps {
   work: Work;
@@ -19,11 +20,14 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
 }) => {
   return (
     <div className="space-y-6">
-      <div className="border-b border-stone-200 pb-4">
-        <div className="text-xs uppercase font-mono tracking-widest text-stone-500 mb-1">
-          WORK CATALOGUE ENTRY · {work.category.toUpperCase()}
+      <div className="relative border-b border-stone-300 pb-4 survey-cut">
+        <div className="absolute right-0 top-0 w-48 opacity-50 hidden sm:block">
+          <AlpineSurveyMotif variant="section" />
         </div>
-        <h1 className="text-2xl sm:text-3xl font-serif text-stone-900 tracking-tight">
+        <div className="survey-coordinate text-stone-500 mb-2 pt-3">
+          OBJECT SURVEY / {work.category.toUpperCase()} / {work.yearDisplay}
+        </div>
+        <h1 className="survey-title text-2xl sm:text-4xl text-stone-900 max-w-[75%]">
           {work.title}
         </h1>
         <div className="text-xs font-mono text-stone-600 mt-1 flex flex-wrap items-center gap-2">
@@ -52,9 +56,12 @@ export const WorkDossier: React.FC<WorkDossierProps> = ({
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-xs font-mono uppercase tracking-widest text-stone-500">
-            Accession & Production Data
-          </h3>
+          <div className="flex items-center justify-between border-b border-stone-300 pb-2">
+            <h3 className="survey-coordinate text-stone-500">
+              Accession & Production Data
+            </h3>
+            <span className="survey-coordinate survey-accent">REF / {work.id.toUpperCase()}</span>
+          </div>
           <dl className="divide-y divide-stone-200 text-xs font-mono">
             {work.hotelName && (
               <div className="py-2 flex justify-between bg-transparent px-2">
