@@ -21,7 +21,6 @@ export const AtlasHomeHeader: React.FC = () => {
 
   return (
     <div className="relative border-b border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0c0e14] transition-colors overflow-hidden">
-      {
       {/* Constructivist Alpine ridge — analytical interface motif */}
       <div className="absolute inset-x-0 bottom-0 h-40 opacity-70 pointer-events-none">
         <AlpineSurveyMotif variant="ridge" />
