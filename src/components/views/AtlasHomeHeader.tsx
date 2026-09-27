@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useAtlas } from '../../context/AtlasContext';
 import { ATLAS_STATS } from '../../data/atlasData';
-import { Users, MapPin, Clock, Dna, ChevronUp, ChevronDown, Compass, Sparkles, Sun, Moon } from 'lucide-react';
+import { Users, MapPin, Clock, Dna, ChevronUp, ChevronDown, Compass, Sun, Moon } from 'lucide-react';
+import { AlpineSurveyMotif } from '../common/AlpineSurveyMotif';
 
 export const AtlasHomeHeader: React.FC = () => {
   const { setActiveTab, updateFilter, theme, toggleTheme, selectAuthor } = useAtlas();
@@ -20,19 +21,12 @@ export const AtlasHomeHeader: React.FC = () => {
 
   return (
     <div className="relative border-b border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0c0e14] transition-colors overflow-hidden">
-      {/* Decorative Alpine Topographic Contour Lines SVG in background */}
-      <svg
-        viewBox="0 0 1440 220"
-        preserveAspectRatio="none"
-        className="absolute bottom-0 left-0 right-0 w-full h-36 opacity-15 dark:opacity-20 pointer-events-none select-none text-stone-900 dark:text-stone-100"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1"
-      >
-        <path d="M 0,220 L 120,130 L 260,180 L 420,90 L 580,160 L 740,60 L 890,140 L 1050,70 L 1220,150 L 1380,80 L 1440,110 L 1440,220 Z" fill="currentColor" fillOpacity="0.03" />
-        <path d="M 0,180 Q 240,120 480,160 T 960,120 T 1440,150" strokeDasharray="3 3" />
-        <path d="M 0,140 Q 300,70 600,110 T 1200,90 T 1440,120" />
-      </svg>
+      {
+      {/* Constructivist Alpine ridge — analytical interface motif */}
+      <div className="absolute inset-x-0 bottom-0 h-40 opacity-70 pointer-events-none">
+        <AlpineSurveyMotif variant="ridge" />
+      </div>
+      <div className="absolute right-[12%] top-0 h-full w-24 -skew-x-[28deg] bg-[#9E3E2F]/8 dark:bg-[#B65443]/10 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-7">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
@@ -46,12 +40,17 @@ export const AtlasHomeHeader: React.FC = () => {
               </span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl font-serif font-black tracking-tight text-stone-950 dark:text-stone-50 leading-tight">
+            <h1 className="survey-title text-4xl sm:text-6xl text-stone-950 dark:text-stone-50 leading-[0.92] max-w-4xl">
               ALPINE GEBRAUCHSGRAPHIK
             </h1>
             
-            <div className="text-sm sm:text-base font-serif italic text-stone-700 dark:text-stone-300 pt-0.5">
-              Atlas of Alpine Visual Culture · 1900—1970
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pt-2 survey-coordinate text-stone-600 dark:text-stone-300">
+              <span>46°32' N — 11°52' E</span>
+              <span className="survey-accent">1900—1970</span>
+              <span>ALPINE VISUAL CULTURE / SURVEY 01</span>
+            </div>
+            <div className="text-sm sm:text-base font-serif italic text-stone-700 dark:text-stone-300 pt-1">
+              Atlas of Alpine Visual Culture
             </div>
             
             <p className="text-xs sm:text-sm font-sans text-stone-600 dark:text-stone-400 leading-relaxed pt-1">
@@ -68,12 +67,12 @@ export const AtlasHomeHeader: React.FC = () => {
             >
               {theme === 'dark' ? (
                 <>
-                  <Sun size={13} className="text-amber-400" />
+                  <Sun size={13} className="text-stone-300" />
                   <span className="hidden sm:inline">Tema Scuro</span>
                 </>
               ) : (
                 <>
-                  <Moon size={13} className="text-indigo-600" />
+                  <Moon size={13} className="text-stone-700" />
                   <span className="hidden sm:inline">Tema Chiaro</span>
                 </>
               )}
@@ -147,8 +146,8 @@ export const AtlasHomeHeader: React.FC = () => {
 
             {/* Curated Research Pathways Fast Launch */}
             <div className="pt-1 flex flex-col lg:flex-row lg:items-center justify-between gap-3 text-xs font-mono">
-              <div className="flex items-center gap-1.5 text-stone-500 dark:text-stone-400 uppercase tracking-widest text-[11px] font-semibold">
-                <Sparkles size={12} className="text-amber-500" />
+              <div className="flex items-center gap-2 text-stone-500 dark:text-stone-400 uppercase tracking-widest text-[11px] font-semibold">
+                <span className="w-8 h-px bg-[#9E3E2F] dark:bg-[#B65443]" />
                 <span>Curated Research Pathways:</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -156,7 +155,7 @@ export const AtlasHomeHeader: React.FC = () => {
                   <button
                     key={idx}
                     onClick={pathway.action}
-                    className="px-2.5 py-1 bg-stone-100 dark:bg-stone-800/80 hover:bg-stone-900 hover:text-white dark:hover:bg-amber-400 dark:hover:text-stone-950 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 transition-all cursor-pointer text-[11px]"
+                    className="px-2.5 py-1 bg-stone-100 dark:bg-stone-800/80 hover:bg-stone-900 hover:text-white dark:hover:bg-stone-100 dark:hover:text-stone-950 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 transition-all cursor-pointer text-[11px]"
                   >
                     {pathway.label} →
                   </button>
