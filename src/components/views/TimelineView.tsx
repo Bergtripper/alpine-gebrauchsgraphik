@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useAtlas } from '../../context/AtlasContext';
 import { PEOPLE, PUBLICATIONS, HISTORICAL_MILESTONES } from '../../data';
 import { ArtworkVisualizer } from '../common/ArtworkVisualizer';
+import { AlpineSurveyMotif } from '../common/AlpineSurveyMotif';
 
 export const TimelineView: React.FC = () => {
   const {
@@ -46,13 +47,16 @@ export const TimelineView: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
       {/* Title & Chronology Controls */}
-      <div className="border-b border-stone-200 dark:border-stone-800 pb-5 transition-colors">
-        <div className="text-xs uppercase font-mono tracking-widest text-stone-500 dark:text-stone-400 mb-1">
-          CHRONOLOGICAL SYNCHRONIZATION · 1900—1970
+      <div className="relative border-b border-stone-300 dark:border-stone-700 pb-5 transition-colors survey-cut">
+        <div className="absolute right-0 top-0 w-64 hidden lg:block opacity-60">
+          <AlpineSurveyMotif variant="section" />
+        </div>
+        <div className="survey-coordinate text-stone-500 dark:text-stone-400 mb-2 pt-3">
+          SURVEY 03 / CHRONOLOGY · 1900—1970
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-serif text-stone-900 dark:text-stone-50 tracking-tight">
+            <h1 className="survey-title text-3xl sm:text-5xl text-stone-900 dark:text-stone-50 max-w-4xl">
               Horizontal Chronology of Alpine Visual Culture
             </h1>
             <p className="text-sm font-serif text-stone-600 dark:text-stone-400 max-w-2xl mt-1.5 leading-relaxed">
@@ -90,8 +94,8 @@ export const TimelineView: React.FC = () => {
 
       {/* Author Universe Scoped Banner */}
       {activeAuthor && (
-        <div className="p-3 bg-transparent dark:bg-transparent border border-amber-200 dark:border-amber-800  text-xs font-mono flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-amber-900 dark:text-amber-200">
+        <div className="p-3 bg-transparent dark:bg-transparent border border-stone-300 dark:border-stone-700  text-xs font-mono flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2 text-stone-900 dark:text-stone-200">
             <span className="w-2 h-2 rounded-full bg-stone-900 dark:bg-stone-100 animate-pulse" />
             <span>
               Author-Scoped Timeline: <strong>{activeAuthor.name}</strong> ({activeAuthor.activeYears})
@@ -99,7 +103,7 @@ export const TimelineView: React.FC = () => {
           </div>
           <button
             onClick={toggleAuthorScope}
-            className="text-[11px] underline text-amber-800 dark:text-amber-300 hover:text-amber-950 dark:hover:text-amber-100 cursor-pointer"
+            className="text-[11px] underline text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-stone-100 cursor-pointer"
           >
             {authorScopeOnly ? 'Show Full Alpine Scope' : 'Limit to Author Only'}
           </button>
@@ -148,7 +152,7 @@ export const TimelineView: React.FC = () => {
                 >
                   <div className="w-3.5 h-3.5 rounded-full bg-stone-900 dark:bg-stone-100 border-2 border-white dark:border-stone-900  flex items-center justify-center group-hover:scale-130 transition-transform" />
                   <div className="hidden group-hover:block absolute bottom-6 left-1/2 -translate-x-1/2 w-64 bg-stone-900 text-white text-xs font-mono p-3 shadow-xl z-30 pointer-events-none border border-stone-700">
-                    <div className="text-amber-400 font-bold mb-1">
+                    <div className="text-[#C26452] font-bold mb-1">
                       {m.year} · {m.category}
                     </div>
                     <div className="font-serif font-bold text-sm mb-1">{m.title}</div>
@@ -188,7 +192,7 @@ export const TimelineView: React.FC = () => {
                     }}
                     className={`absolute h-6 px-2.5 flex items-center justify-between text-xs font-mono cursor-pointer transition-all  ${
                       isActive
-                        ? 'bg-amber-600 text-white font-bold ring-2 ring-amber-400 z-10'
+                        ? 'bg-[#9E3E2F] text-white font-bold z-10'
                         : 'bg-stone-900 dark:bg-stone-200 hover:bg-stone-700 dark:hover:bg-white text-white dark:text-stone-950 font-semibold'
                     }`}
                     style={{ left: `${startPct}%`, width: `${widthPct}%` }}
