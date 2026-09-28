@@ -24,6 +24,8 @@ import { herbertMatter } from './herbert-matter';
 import { alfonsBrugger } from './alfons-brugger';
 import { loisPregartbauer } from './lois-pregartbauer';
 import { marioSturani } from './mario-sturani';
+import { filippoRomoli } from './filippo-romoli';
+import { carloDeZulian } from './carlo-de-zulian';
 
 export {
   franzLenhart,
@@ -51,6 +53,8 @@ export {
   alfonsBrugger,
   loisPregartbauer,
   marioSturani,
+  filippoRomoli,
+  carloDeZulian,
 };
 
 export const PEOPLE: Person[] = [
@@ -79,4 +83,6 @@ export const PEOPLE: Person[] = [
   alfonsBrugger,
   loisPregartbauer,
   marioSturani,
+  filippoRomoli,
+  carloDeZulian,
 ];
