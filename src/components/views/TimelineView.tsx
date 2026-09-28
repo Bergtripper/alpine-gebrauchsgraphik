@@ -177,9 +177,11 @@ export const TimelineView: React.FC = () => {
           </div>
 
           <div className="relative space-y-2 py-1">
-            {PEOPLE.map((p) => {
-              const startPct = getPositionPercent(p.activeStart);
-              const endPct = getPositionPercent(p.activeEnd);
+            {PEOPLE.filter(
+              (p) => p.activeStart !== undefined && p.activeEnd !== undefined
+            ).map((p) => {
+              const startPct = getPositionPercent(p.activeStart!);
+              const endPct = getPositionPercent(p.activeEnd!);
               const widthPct = Math.max(3, endPct - startPct);
               const isActive = activeAuthor?.id === p.id;
 
