@@ -24,6 +24,21 @@ import { herbertMatter } from './herbert-matter';
 import { alfonsBrugger } from './alfons-brugger';
 import { loisPregartbauer } from './lois-pregartbauer';
 import { marioSturani } from './mario-sturani';
+import { filippoRomoli } from './filippo-romoli';
+import { carloDeZulian } from './carlo-de-zulian';
+import { josephBinder } from './joseph-binder';
+import { luigiBonazza } from './luigi-bonazza';
+import { fortunatoDepero } from './fortunato-depero';
+import { marcelloDudovich } from './marcello-dudovich';
+import { fritzErler } from './fritz-erler';
+import { maxVonEsterle } from './max-von-esterle';
+import { hermannKosel } from './hermann-kosel';
+import { erwinPuchinger } from './erwin-puchinger';
+import { giuseppeRiccobaldiDelBava } from './giuseppe-riccobaldi-del-bava';
+import { hannsWagula } from './hanns-wagula';
+import { hansJosefWeberTyrol } from './hans-josef-weber-tyrol';
+import { ettoreSottsassSr } from './ettore-sottsass-sr';
+import { giorgioWenterMarini } from './giorgio-wenter-marini';
 
 export {
   franzLenhart,
@@ -51,6 +66,21 @@ export {
   alfonsBrugger,
   loisPregartbauer,
   marioSturani,
+  filippoRomoli,
+  carloDeZulian,
+  josephBinder,
+  luigiBonazza,
+  fortunatoDepero,
+  marcelloDudovich,
+  fritzErler,
+  maxVonEsterle,
+  hermannKosel,
+  erwinPuchinger,
+  giuseppeRiccobaldiDelBava,
+  hannsWagula,
+  hansJosefWeberTyrol,
+  ettoreSottsassSr,
+  giorgioWenterMarini,
 };
 
 export const PEOPLE: Person[] = [
@@ -79,4 +109,19 @@ export const PEOPLE: Person[] = [
   alfonsBrugger,
   loisPregartbauer,
   marioSturani,
+  filippoRomoli,
+  carloDeZulian,
+  josephBinder,
+  luigiBonazza,
+  fortunatoDepero,
+  marcelloDudovich,
+  fritzErler,
+  maxVonEsterle,
+  hermannKosel,
+  erwinPuchinger,
+  giuseppeRiccobaldiDelBava,
+  hannsWagula,
+  hansJosefWeberTyrol,
+  ettoreSottsassSr,
+  giorgioWenterMarini,
 ];

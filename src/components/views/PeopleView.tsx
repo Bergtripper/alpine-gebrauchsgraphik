@@ -60,6 +60,9 @@ export const PeopleView: React.FC = () => {
       if (selectedDecade !== 'all') {
         const dec = parseInt(selectedDecade, 10);
         const decEnd = dec + 9;
+        if (p.activeStart === undefined || p.activeEnd === undefined) {
+          return false;
+        }
         if (p.activeEnd < dec || p.activeStart > decEnd) {
           return false;
         }

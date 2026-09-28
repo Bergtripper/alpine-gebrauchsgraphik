@@ -251,8 +251,8 @@ export interface Person {
   identityNotes?: string;
   cities: string[];
   activeYears: string;
-  activeStart: number;
-  activeEnd: number;
+  activeStart?: number;
+  activeEnd?: number;
   professions: string[];
   biography: string;
   associatedInstitutions: string[];
