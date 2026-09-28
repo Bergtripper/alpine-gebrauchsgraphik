@@ -213,4 +213,12 @@ export const SOURCES_DB: Record<string, SourceReference> = {
     verified: true,
     notes: 'Institutional record attributes the poster to Carlo De Zulian (1905–1978) and records a printed De Zulian signature.',
   },
+  src_alpitypes_historical_masters: {
+    id: 'src_alpitypes_historical_masters',
+    citation: 'Alpitypes, “Historical Masters”, page supplied by the project curator; full bibliographic details pending entry.',
+    archiveOrCollection: 'Alpitypes',
+    sourceType: 'monograph',
+    verified: true,
+    notes: 'The supplied page is used only to document inclusion in the Alpitypes Historical Masters list. Biographical data require separate verification.',
+  },
 };
