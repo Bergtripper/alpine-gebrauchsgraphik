@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
 
   return (
     <header className="sticky top-0 z-40 bg-[#FAF9F5]/95 dark:bg-[#090b10]/95  border-b border-stone-200 dark:border-stone-800 transition-colors">
-      <div className={cn('max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4 transition-all duration-300', compactHeader ? 'h-14' : 'h-[86px]')}>
+      <div className={cn('relative max-w-7xl mx-auto px-4 sm:px-6 flex items-start justify-between gap-4 transition-all duration-300', compactHeader ? 'h-[86px] pt-3' : 'h-[118px] pt-4')}>
         <button onClick={() => setActiveTab('people')} className="group min-w-0 text-left focus-visible:outline-none">
           <div className="flex items-end gap-3">
             <div className="leading-[.82] text-stone-950 dark:text-stone-50">
@@ -99,8 +99,8 @@ export const Header: React.FC<HeaderProps> = ({ onToggleFilterBar, isFilterBarOp
           </div>
         </button>
 
-        {/* Functional controls remain project utilities */}        {/* Zone 2: Navigation Links (Matching Avant-Garde Atlas) */}
-        <nav className="hidden lg:flex items-center gap-4 text-xs font-mono uppercase tracking-wider text-stone-600 dark:text-stone-400">
+        {/* Zone 2: Navigation Links (Matching Avant-Garde Atlas) */}
+        <nav className="hidden lg:flex absolute inset-x-6 bottom-0 h-9 items-center gap-5 border-t border-stone-200 dark:border-stone-800 text-[10px] font-mono uppercase tracking-[.13em] text-stone-600 dark:text-stone-400">
           {navItems.map((item) => {
             if (item.isDropdown && item.id === 'map') {
               return (
