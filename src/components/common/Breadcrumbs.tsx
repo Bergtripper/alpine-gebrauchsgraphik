@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAtlas } from '../../context/AtlasContext';
-import { ChevronRight, Compass, Home } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 export const Breadcrumbs: React.FC = () => {
   const {
@@ -28,42 +28,32 @@ export const Breadcrumbs: React.FC = () => {
     >
       <div className="flex items-center gap-1.5 overflow-x-auto text-stone-600 dark:text-stone-400">
         <button
-          onClick={() => setActiveTab('people')}
-          className="flex items-center gap-1 hover:text-stone-950 dark:hover:text-white transition-colors cursor-pointer"
+          onClick={() => setActiveTab('explore')}
+          className="uppercase text-[9px] tracking-[.18em] font-bold text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white transition-colors cursor-pointer"
         >
-          <Home size={11} className="text-stone-500 dark:text-stone-400" />
-          <span className="font-bold">DOTZERO</span>
+          ATLAS
         </button>
 
-        <ChevronRight size={11} className="text-stone-400 dark:text-stone-600 shrink-0" />
-
-        <button
-          onClick={() => setActiveTab('people')}
-          className="hover:text-stone-950 dark:hover:text-white transition-colors cursor-pointer"
-        >
-          ALPINE GEBRAUCHSGRAPHIK
-        </button>
-
-        <ChevronRight size={11} className="text-stone-400 dark:text-stone-600 shrink-0" />
+        <span className="text-stone-300 dark:text-stone-700 shrink-0" aria-hidden="true">/</span>
 
         {/* Current Primary Tab */}
         <button
           onClick={() => setActiveTab(activeTab)}
           className="uppercase font-semibold text-stone-800 dark:text-stone-200 hover:text-stone-950 dark:hover:text-white transition-colors cursor-pointer"
         >
-          {activeTab === 'explore' ? 'EXPLORE' : activeTab.toUpperCase()}
+          {activeTab === 'explore' ? 'NETWORK' : activeTab.toUpperCase()}
         </button>
 
         {/* Map Scale or Region if in Map view */}
         {activeTab === 'map' && (
           <>
-            <ChevronRight size={11} className="text-stone-400 dark:text-stone-600 shrink-0" />
+            <span className="text-stone-300 dark:text-stone-700 shrink-0" aria-hidden="true">/</span>
             <span className="text-stone-900 dark:text-stone-100 uppercase font-semibold">
               SCALE: {activeMapScale.toUpperCase()}
             </span>
             {activeRegion !== 'all' && (
               <>
-                <ChevronRight size={11} className="text-stone-400 dark:text-stone-600 shrink-0" />
+                <span className="text-stone-300 dark:text-stone-700 shrink-0" aria-hidden="true">/</span>
                 <span className="text-stone-700 dark:text-stone-300 uppercase">
                   {activeRegion.replace('-', ' ')}
                 </span>
@@ -75,7 +65,7 @@ export const Breadcrumbs: React.FC = () => {
         {/* Active Node context */}
         {nodeTitle && (
           <>
-            <ChevronRight size={11} className="text-stone-400 dark:text-stone-600 shrink-0" />
+            <span className="text-stone-300 dark:text-stone-700 shrink-0" aria-hidden="true">/</span>
             <span className="text-stone-900 dark:text-white font-bold truncate max-w-[200px]">
               {nodeTitle}
             </span>
