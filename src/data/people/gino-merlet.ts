@@ -3,7 +3,7 @@ import { SOURCES_DB } from '../sources';
 
 export const ginoMerlet: Person = {
   id: 'gino-merlet',
-  name: 'Alexander Erwin Merlet (Gino Merlet)',
+  name: 'Dr Alexander Erwin Merlet',
   birthYear: 1886,
   deathYear: 1939,
   nationality: 'Italian / South Tyrolean',
@@ -13,7 +13,7 @@ export const ginoMerlet: Person = {
   activeStart: 1920,
   activeEnd: 1955,
   professions: ['Graphic artist', 'Photographer', 'Mountaineer', 'Publisher'],
-  biography: 'Alexander Gino Merlet operated at the exact intersection of technical alpinism and modern visual communication in Bolzano. Founder of the Foto-Sport studio and commercial partner of legendary sporting-goods suppliers like Oberrauch & Zitt, Merlet was a pioneer of alpine photography and catalog design. His climbing guidebooks and gear advertisements abandoned romantic pictorialism in favor of stark, functional line drawings and dramatic low-angle photography.',
+  biography: 'Dr Alexander Erwin Merlet operated at the exact intersection of technical alpinism and modern visual communication in Bolzano. Founder of the Foto-Sport studio and commercial partner of legendary sporting-goods suppliers like Oberrauch & Zitt, Merlet was a pioneer of alpine photography and catalog design. His climbing guidebooks and gear advertisements abandoned romantic pictorialism in favor of stark, functional line drawings and dramatic low-angle photography.',
   associatedInstitutions: ['CAI (Club Alpino Italiano) Sezione Bolzano', 'DÖAV (Deutscher und Österreichischer Alpenverein)'],
   associatedCompanies: ['Oberrauch & Zitt Bozen', 'Tipografia Athesia'],
   associatedPlaces: ['bolzano', 'munich'],
